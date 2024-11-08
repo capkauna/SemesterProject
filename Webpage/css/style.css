@@ -1,0 +1,121 @@
+/* Ana-Maria Patriche */
+
+#NavBar{
+    background-color: #aceb98ff !important;/* change the background color of the navbar */
+    margin: 0;
+}
+
+.navbar-brand {
+    color: #157a6eff !important; /* change the color of the navbar brand text */
+    margin: 0 3% !important; /* change the margin of the navbar brand to give it some space from the edge of the screen */
+}
+
+#navbarNav {
+    justify-content: center; /* readjust the content so it centers when the page is large enough */
+}
+
+
+/* Bartosz Kolando */
+
+#main-carousel {
+    width: 80%; 
+    margin: 0 auto;  
+  }
+.carousel-indicators button {
+    background-color: black !important; 
+  }
+  .c-item {
+    width: 100%; 
+    height: auto; 
+    max-height: 600px; 
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: black;
+}
+.vision-section {
+    padding: 40px 0;
+    text-align: center;
+}
+.vision-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+.vision-section p {
+    max-width: 700px;
+    margin: 0 auto;
+}
+#animals{
+    height: 600px;
+    margin-top: 40px;
+}  
+.c-img, #animals {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    margin: 0 auto; 
+}
+/* Piotr  */
+footer {
+    padding: 10px; 
+}
+
+#copy {
+    background-color: #333333; 
+    color: #fff; 
+    text-align: center; /* centers the text */
+    padding: 10px; 
+    margin-top: 20px; 
+}
+#contact {
+    text-align: center;
+    padding: 30px;
+}
+#contact a {
+    color: #333333;
+    text-decoration: none;
+    background-color: lightgreen;
+    padding: 10px 20px;
+    border-radius: 10px; 
+}
+.card h5 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+
+/* Elina Grumbina */
+.button-style {
+    
+        background-color: green;  /* Background color */
+        color: white;             /* Text color */
+        border: none;             /* Remove border */
+        padding: 10px 20px;       /* Add padding */
+        border-radius: 5px;       /* Rounded corners */
+    }
+    
+    .button-style:hover {
+        background-color: darkgreen; /* Darker background on hover */
+    }
+
+    .card-img-top {   /*allign all pictures together to same size*/
+        height: 200px;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+    
+
+    /* Neegam Singh Kunwar */
+    div {
+    border-radius: 1% solid #aceb98ff; /* Add solid border with width 1% of the element's parent width & border color light green */
+    
+    padding: 20px;  /* Padding */
+    color: black; /*  text color */
+    overflow: hidden; /* keeps rounded corners */
+}
+    
