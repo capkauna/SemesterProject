@@ -2,7 +2,6 @@
 
 #NavBar{
     background-color: #aceb98ff !important;/* change the background color of the navbar */
-    margin: 0;
 }
 
 .navbar-brand {
@@ -92,10 +91,10 @@ footer {
 /* Elina Grumbina */
 .button-style {
     
-        background-color: green;  /* Background color */
+        background-color: green;  
         color: white;             /* Text color */
-        border: none;             /* Remove border */
-        padding: 10px 20px;       /* Add padding */
+        border: none;             
+        padding: 10px 20px;       
         border-radius: 5px;       /* Rounded corners */
     }
     
