@@ -1,3 +1,5 @@
+import javafx.scene.image.Image;
+
 public class Pet {
     private String name;
     private char gender;
