@@ -1,11 +1,9 @@
-import javafx.application.Application;
-
 import java.util.ArrayList;
 import java.util.List;
 
 
 
-public abstract class Customer extends {
+public class Customer {
     private String name;
     private String phoneNo;
     private String address;
@@ -15,7 +13,7 @@ public abstract class Customer extends {
     private Pet pets;
 
 
-    public Customer(String name, String phoneNo, String address, String email, Booking booking, Pet pets) {
+    public Customer(String name, String phoneNo, String address, Booking booking, Pet pets) {
         this.name = name;
         this.phoneNo = phoneNo;
         this.address = address;
@@ -109,4 +107,4 @@ public abstract class Customer extends {
             '}';
     }
 }
-}
+

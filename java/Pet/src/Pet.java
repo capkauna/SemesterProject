@@ -10,13 +10,13 @@ public class Pet {
     private double finalPrice;
     private Image photo;
 
-    public Pet(String name, char gender, int age, String color, String comments, int Price, int finalPrice, Image photo){
+    public Pet(String name, char gender, int age, String color, String comments, double price, double finalPrice, Image photo){
         this.name = name;
         this.gender = gender;
         this.age = age;
         this.color = color;
         this.comments = comments;
-        this.price = price;
+        this.price = this.price;
         this.finalPrice = finalPrice;
         this.photo = photo;
     }
@@ -40,7 +40,8 @@ public class Pet {
         this.photo = photo;
     }
 
-    public String getName() {
+
+  public String getName() {
         return name;
     }
 

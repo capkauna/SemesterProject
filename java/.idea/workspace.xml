@@ -33,15 +33,16 @@
   "keyToString": {
     "Application.CustomerListTest.executor": "Run",
     "Application.CustomerTest.executor": "Run",
+    "Application.PetshopTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Bruger/Desktop/java",
+    "last_opened_file_path": "C:/Users/piter/IdeaProjects/test",
     "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.CustomerListTest">
+  <component name="RunManager" selected="Application.PetshopTest">
     <configuration name="CustomerListTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="CustomerListTest" />
       <module name="Customer" />
@@ -56,14 +57,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PetshopTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="PetshopTest" />
+      <module name="Petshop" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.PetshopTest" />
         <item itemvalue="Application.CustomerListTest" />
         <item itemvalue="Application.CustomerTest" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\Bruger\AppData\Roaming\Subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="9d960eb9-36e6-4b75-8ef1-d0c69c06cfde" name="Changes" comment="" />

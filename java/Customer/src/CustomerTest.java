@@ -2,6 +2,9 @@ public class CustomerTest
 {
   public static void main(String[] args)
   {
-    Customer customer = new Customer();
+    String email = new String();
+    Customer customer = new Customer("John Doe", "1234567890", "123 Main St", new Booking(), new Pet());
+    System.out.println(customer);
+
   }
 }

@@ -7,6 +7,11 @@ public class Booking {
         this.pricePerDay = pricePerDay;
     }
 
+    public Booking()
+    {
+
+    }
+
     public double getPricePerDay() {
         return pricePerDay;
     }
