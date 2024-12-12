@@ -40,7 +40,12 @@ public class Pet {
         this.photo = photo;
     }
 
-    public String getName() {
+  public Pet()
+  {
+
+  }
+
+  public String getName() {
         return name;
     }
 
