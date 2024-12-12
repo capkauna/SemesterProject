@@ -1,51 +1,78 @@
+import java.util.Objects;
+
 public class DateInterval
 {
-  private Date start;
-  private Date end;
+  private Date startDate;
+  private Date endDate;
 
-  public DateInterval(Date start, Date end)
+  public DateInterval(Date startDate, Date endDate)
   {
-    if(!isValidInterval(start, end))
+    if(!isValidInterval(startDate, endDate))
     {
       throw new IllegalArgumentException("Start date must be before or the same as end date");
     }
-    this.start = start;
-    this.end = end;
+    this.startDate = startDate;
+    this.endDate = endDate;
   }
 
-  public Date getStart()
+  public Date getStartDate()
   {
-    return start;
+    return startDate;
   }
 
-  public void setStart(Date start)
+  public void setStartDate(Date startDate)
   {
-    this.start = start;
+    this.startDate = startDate;
   }
 
-  public Date getEnd()
+  public Date getEndDate()
   {
-    return end;
+    return endDate;
   }
 
-  public void setEnd(Date end)
+  public void setEndDate(Date endDate)
   {
-    this.end = end;
+    this.endDate = endDate;
   }
 
-  private boolean isValidInterval(Date start, Date end)
+  private boolean isValidInterval(Date startDate, Date endDate)
   {
-    return !start.isAfter(end);
+    return !startDate.isAfter(endDate);
   }
 
-  
+  public boolean contains (Date date)
+  {
+    return (date.isAfter(startDate) || date.isEqual(startDate) && date.isBefore(
+        endDate) || date.isEqual(endDate));
+  }
 
+  public boolean overlaps (DateInterval other)
+  {
+    return this.contains(other.startDate) || this.contains(other.endDate) || other.contains(this.startDate) || other.contains(this.endDate);
+  }
 
+  public int numberOfDays()
+  {
+    return endDate.toDays() - startDate.toDays();
+  }
 
+  @Override
+  public String toString()
+  {
+    return "Booked from " + startDate + " until " + endDate + '.';
+  }
 
+  @Override public boolean equals(Object o)
+  {
+    if (o == null || getClass() != o.getClass())
+      return false;
+    DateInterval that = (DateInterval) o;
+    return Objects.equals(getStartDate(), that.getStartDate())
+        && Objects.equals(getEndDate(), that.getEndDate());
+  }
 
-
-
-
-
+  @Override public int hashCode()
+  {
+    return Objects.hash(getStartDate(), getEndDate());
+  }
 }

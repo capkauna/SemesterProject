@@ -89,6 +89,37 @@ public class Date {
         return this.year == other.year && this.month == other.month && this.day == other.day;
     }
 
+    public int toDays()
+    {
+        int days = 0;
+
+        for(int y=1; y < year; y++)
+        {
+            days += isLeapYear(y) ? 366 : 365;
+        }
+        for(int m = 1; m < month; m++)
+        {
+            if(m == 2)
+            {
+                days += isLeapYear(year) ? 29 : 28;
+            }
+            else if(m == 4 || m == 6 || m == 9 || m == 11)
+            {
+                days += 30;
+            }
+            else
+            {
+                days += 31;
+            }
+        }
+        days += day;
+        return days;
+    }
+
+
+
+
+
 
 
     @Override
