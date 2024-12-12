@@ -1,3 +1,5 @@
+import java.util.Date;
+
 public class Booking {
     private double pricePerDay;
 
