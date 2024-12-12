@@ -10,7 +10,7 @@ public class PetshopTest {
         customerList.addCustomer(customer);
 
         // Add pets
-        Pet pet = new Pet("Buddy", "Male", 2, "Brown", "Friendly dog", 500.0, "photo.jpg");
+        Pet pet = new Cat("Buddy", "Male", 2, "Brown", "Friendly dog", 500.0, "photo.jpg", "breed", "breeder");
         petList.addPet(pet);
         petsForSaleList.addPetForSale(pet); // Add to pets for sale list
 
