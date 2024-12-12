@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d960eb9-36e6-4b75-8ef1-d0c69c06cfde" name="Changes" comment="" />
+    <list default="true" id="9d960eb9-36e6-4b75-8ef1-d0c69c06cfde" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Class Diagram/Class Diagram.1.asta" beforeDir="false" afterPath="$PROJECT_DIR$/../Class Diagram/Class Diagram.1.asta" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,7 +37,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/piter/OneDrive - ViaUC/Documents/GitHub/SemesterProject/java"
+    "last_opened_file_path": "C:/Users/piter/Downloads/StudentManagementGUI_Design_Example"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
