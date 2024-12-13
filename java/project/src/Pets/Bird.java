@@ -1,3 +1,5 @@
+package Pets;
+
 public class Bird extends Pet {
     private String species;
     private String preferredFood;

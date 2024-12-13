@@ -1,3 +1,5 @@
+package Pets;
+
 public class Rodents extends Pet {
     private String species;
     private String bites; // can be a String for additional context (e.g., "Yes, occasionally")

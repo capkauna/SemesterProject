@@ -1,3 +1,5 @@
+package Pets;
+
 public class Fish extends Pet {
     private String species;
     private String waterType;

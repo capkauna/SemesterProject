@@ -1,3 +1,5 @@
+package Pets;
+
 public class Cat extends Pet {
     private String breed;
     private String breeder;

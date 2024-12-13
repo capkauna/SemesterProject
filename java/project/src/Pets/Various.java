@@ -1,3 +1,5 @@
+package Pets;
+
 public class Various extends Pet {
     private String species;
     private String otherInfo;
