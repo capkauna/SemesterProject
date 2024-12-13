@@ -1,3 +1,6 @@
+import Pets.Pet;
+import Pets.Sale;
+
 import java.util.ArrayList;
 
 public class VIAPets {

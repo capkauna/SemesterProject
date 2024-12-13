@@ -1,3 +1,6 @@
+import Pets.Date;
+import Pets.Pet;
+
 public class PetshopTest {
     public static void main(String[] args) {
         CustomerList customerList = new CustomerList();
@@ -15,7 +18,7 @@ public class PetshopTest {
         petsForSaleList.addPetForSale(pet); // Add to pets for sale list
 
         // Display pets for sale
-        System.out.println("Pets for Sale: " + petsForSaleList);
+        System.out.println("Pets for Pets.Sale: " + petsForSaleList);
 
         // Sell a pet
         Date saleDate = new Date(13, 12, 2024);
@@ -23,6 +26,6 @@ public class PetshopTest {
 
         // Display sales and remaining pets for sale
         System.out.println("Sales: " + salesList);
-        System.out.println("Remaining Pets for Sale: " + petsForSaleList);
+        System.out.println("Remaining Pets for Pets.Sale: " + petsForSaleList);
     }
 }
