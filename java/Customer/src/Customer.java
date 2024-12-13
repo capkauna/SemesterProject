@@ -13,12 +13,12 @@ public class Customer {
     private Pet pets;
 
 
-    public Customer(String name, String phoneNo, String address, Booking booking, Pet pets) {
+    public Customer(String name, String phoneNo, String address, String email, Booking booking, Pet pets) {
         this.name = name;
         this.phoneNo = phoneNo;
         this.address = address;
         this.email = email;
-        this.bookings = new ArrayList<>(); // Initialize the list
+        this.bookings = new ArrayList<>();
         this.pets = pets;
     }
 
@@ -67,16 +67,16 @@ public class Customer {
         this.booking = booking;
     }
 
-    // Add a new booking
+
     public void addBooking(Booking booking) {
         if (booking != null) {
             bookings.add(booking);
         }
     }
 
-    // Get all bookings
+
     public List<Booking> getBookings() {
-        return new ArrayList<>(bookings); // Return a copy to avoid modification
+        return new ArrayList<>(bookings);
     }
 
     public Pet getPets() {
@@ -98,13 +98,15 @@ public class Customer {
     @Override
     public String toString() {
         return "Customer{" +
-            "name='" + name + '\'' +
-            ", phoneNo='" + phoneNo + '\'' +
-            ", address='" + address + '\'' +
-            ", email='" + email + '\'' +
-            ", bookings=" + bookings +
-            ", pets=" + pets +
-            '}';
+                "name='" + name + '\'' +
+                ", phoneNo='" + phoneNo + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", booking=" + booking +
+                ", bookings=" + bookings +
+                ", pets=" + pets +
+                '}';
     }
+
 }
 
