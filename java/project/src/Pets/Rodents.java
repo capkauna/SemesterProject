@@ -1,11 +1,15 @@
 package Pets;
 
+import javafx.scene.image.Image;
+
+import java.util.Objects;
+
 public class Rodents extends Pet {
     private String species;
-    private String bites; // can be a String for additional context (e.g., "Yes, occasionally")
+    private boolean bites; // can be a String for additional context (e.g., "Yes, occasionally") That can be added to comments section
 
-    public Rodents(String name, String gender, int age, String color, String comments, double price, String photo, String species, String bites) {
-        super(name, gender, age, color, comments, price, photo);
+    public Rodents(String name, String gender, double age, String color, String comments, Image photo, boolean forSale, String ownerName, String species, boolean bites) {
+        super(name,gender,age,color,comments,photo,forSale,ownerName);
         this.species = species;
         this.bites = bites;
     }
@@ -18,16 +22,30 @@ public class Rodents extends Pet {
         this.species = species;
     }
 
-    public String getBites() {
+    public boolean isBitesBites() {
         return bites;
     }
 
-    public void setBites(String bites) {
+    public void setBites(boolean bites) {
         this.bites = bites;
     }
 
     @Override
     public String toString() {
-        return super.toString() + ", species='" + species + '\'' + ", bites='" + bites + '\'' + '}';
+        return super.toString() + ", species: " + species + ", bites: " + (bites ? "Yes" : "No" );
+    }
+
+    @Override public boolean equals(Object o)
+    {
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Rodents rodents = (Rodents) o;
+        return bites == rodents.bites && Objects.equals(getSpecies(),
+            rodents.getSpecies());
+    }
+
+    @Override public int hashCode()
+    {
+        return Objects.hash(getSpecies(), bites);
     }
 }

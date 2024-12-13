@@ -6,17 +6,20 @@ public class Sale {
     private double finalPrice;
     private boolean isSold;
 
-    /*sold pet constructor is obsolete with markassold method
+    //solf pet constructor for SalesList use only
     public Sale(Date saleDate,double price, double finalPrice) {
-        if (price <= 0)
+        if (saleDate == null)
         {
-            throw new IllegalArgumentException("Price invalid");
+            throw new IllegalArgumentException("Please add date.");
         }
+        validatePrice(price);
+        validatePrice(finalPrice);
         this.saleDate = saleDate;
         this.price = price;
         this.finalPrice = finalPrice;
+        this.isSold = true; //mark as sold for clear separation
     }
-         */
+
 
     //pet waiting to be sold
     public Sale(double price) {

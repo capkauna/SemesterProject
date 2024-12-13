@@ -1,11 +1,15 @@
 package Pets;
 
+import javafx.scene.image.Image;
+
+import java.util.Objects;
+
 public class Various extends Pet {
     private String species;
     private String otherInfo;
 
-    public Various(String name, String gender, int age, String color, String comments, double price, String photo, String species, String otherInfo) {
-        super(name, gender, age, color, comments, price, photo);
+    public Various(String name, String gender, double age, String color, String comments, Image photo, boolean forSale, String ownerName, String species, String otherInfo) {
+        super(name,gender,age,color,comments,photo,forSale,ownerName);
         this.species = species;
         this.otherInfo = otherInfo;
     }
@@ -13,7 +17,6 @@ public class Various extends Pet {
     public String getSpecies() {
         return species;
     }
-
     public void setSpecies(String species) {
         this.species = species;
     }
@@ -21,7 +24,6 @@ public class Various extends Pet {
     public String getOtherInfo() {
         return otherInfo;
     }
-
     public void setOtherInfo(String otherInfo) {
         this.otherInfo = otherInfo;
     }
@@ -29,5 +31,19 @@ public class Various extends Pet {
     @Override
     public String toString() {
         return super.toString() + ", species='" + species + '\'' + ", otherInfo='" + otherInfo + '\'' + '}';
+    }
+
+    @Override public boolean equals(Object o)
+    {
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Various various = (Various) o;
+        return Objects.equals(getSpecies(), various.getSpecies())
+            && Objects.equals(getOtherInfo(), various.getOtherInfo());
+    }
+
+    @Override public int hashCode()
+    {
+        return Objects.hash(getSpecies(), getOtherInfo());
     }
 }

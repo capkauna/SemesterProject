@@ -1,33 +1,53 @@
 import Pets.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class PetsForSaleList {
     private List<Pet> petsForSale = new ArrayList<>();
 
-    public void addPetForSale(Pet pet) {
-        petsForSale.add(pet);
-    }
 
-    public void sellPet(Pet pet, Date saleDate, double price, double finalPrice, SalesList salesList) {
-        if (petsForSale.contains(pet)) {
-            petsForSale.remove(pet); // Remove the pet from the list of pets for sale
-            Sale sale = new Sale(saleDate, price, finalPrice); // Create a sale
-            salesList.addSale(sale); // Add the sale to the sales list
-            System.out.println("Pets.Pet sold: " + pet);
+    public void addPetForSale(Pet pet) {
+        if (pet.isForSale()) {
+            petsForSale.add(pet);
         } else {
-            System.out.println("Pets.Pet not available for sale.");
+            System.out.println("Pet is not marked for sale and cannot be added to the for-sale list.");
         }
     }
 
+    // Sell a pet
+    public void sellPet(Pet pet, Date saleDate, double finalPrice, SalesList salesList, String newOwnerName) {
+        if (petsForSale.contains(pet)) {
+            // Mark the pet as sold
+            try {
+                pet.markAsSold(saleDate, finalPrice);
+                pet.setOwnerName(newOwnerName);
 
+                // Remove the pet from the for-sale list
+                petsForSale.remove(pet);
+
+                // Add the sale to the SalesList
+                salesList.addSale(pet.getSaleInfo());
+
+                System.out.println("Pet sold: " + pet);
+            } catch (IllegalStateException | IllegalArgumentException e) {
+                System.out.println("Error selling pet: " + e.getMessage());
+            }
+        } else {
+            System.out.println("Pet is not available in the for-sale list.");
+        }
+    }
+
+    // Get all pets currently for sale
     public List<Pet> getPetsForSale() {
         return petsForSale;
     }
 
     @Override
     public String toString() {
-        return "PetsForSaleList{" + "petsForSale=" + petsForSale + '}';
+        StringBuilder sb = new StringBuilder("Pets For Sale:\n");
+        for (int i = 0; i < petsForSale.size(); i++) {
+            sb.append(i + 1).append(". ").append(petsForSale.get(i)).append("\n");
+        }
+        return sb.toString();
     }
 }

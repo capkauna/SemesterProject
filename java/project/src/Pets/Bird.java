@@ -3,6 +3,7 @@ package Pets;
 import javafx.scene.image.Image;
 
 import java.awt.*;
+import java.util.Objects;
 
 public class Bird extends Pet {
     private String species;
@@ -41,5 +42,19 @@ public class Bird extends Pet {
     @Override
     public String toString() {
         return super.toString() + ", species='" + species + '\'' + ", preferredFood='" + preferredFood + '\'' + '}';
+    }
+
+    @Override public boolean equals(Object o)
+    {
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Bird bird = (Bird) o;
+        return Objects.equals(getSpecies(), bird.getSpecies())
+            && Objects.equals(getPreferredFood(), bird.getPreferredFood());
+    }
+
+    @Override public int hashCode()
+    {
+        return Objects.hash(getSpecies(), getPreferredFood());
     }
 }

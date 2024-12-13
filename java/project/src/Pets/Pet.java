@@ -1,6 +1,8 @@
 package Pets;
 
 import javafx.scene.image.Image;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Pet {
     private String name;
@@ -12,6 +14,8 @@ public abstract class Pet {
     private boolean forSale;
     private String ownerName;
     private Sale saleInfo;
+    private List<String> history = new ArrayList<>();
+
 
     public Pet(String name, String gender, double age, String color, String comments, Image photo, boolean forSale, String ownerName)
     {
@@ -129,6 +133,18 @@ public abstract class Pet {
         this.saleInfo = null;
         this.ownerName = ownerName;
     }
+    //handling history
+    public void addToHistory(String event) {
+        if (event == null || event.isEmpty()) {
+            throw new IllegalArgumentException("Event cannot be null or empty.");
+        }
+        history.add(event);
+    }
+    public List<String> getHistory() {
+        return new ArrayList<>(history); // Return a copy to avoid external modification
+    }
+
+
 
     @Override
     public String toString() {
