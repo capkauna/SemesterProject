@@ -7,12 +7,12 @@ public class SalesList {
     // Inner class to encapsulate a sale with pet and buyer details, for storage purposes
     public static class SaleRecord {
         private Pet pet;
-        private String buyerName;
+        private Customer buyer;
         private Sale sale;
 
-        public SaleRecord(Pet pet, String buyerName, Sale sale) {
+        public SaleRecord(Pet pet, Customer buyer, Sale sale) {
             this.pet = pet;
-            this.buyerName = buyerName;
+            this.buyer = buyer;
             this.sale = sale;
         }
 
@@ -20,8 +20,8 @@ public class SalesList {
             return pet;
         }
 
-        public String getBuyerName() {
-            return buyerName;
+        public Customer getBuyer() {
+            return buyer;
         }
 
         public Sale getSale() {
@@ -32,7 +32,7 @@ public class SalesList {
         public String toString() {
             return "SaleRecord{" +
                 "pet=" + pet.getName() +
-                ", buyerName='" + buyerName + '\'' +
+                ", buyerName='" + buyer + '\'' +
                 ", sale=" + sale +
                 '}';
         }
@@ -41,7 +41,7 @@ public class SalesList {
     private List<SaleRecord> sales = new ArrayList<>();
 
     // Add a completed sale
-    public void addSale(Pet pet, String buyerName, Date saleDate, double price, double finalPrice) {
+    public void addSale(Pet pet, Customer buyerName, Date saleDate, double price, double finalPrice) {
         if (pet == null || buyerName == null || saleDate == null) {
             throw new IllegalArgumentException("Pet, buyer name, and sale date must not be null.");
         }
@@ -52,8 +52,8 @@ public class SalesList {
 
         // Update pet's sale information and owner
         pet.markAsSold(saleDate, finalPrice);
-        pet.setOwnerName(buyerName);
-        pet.addToHistory("Sold to " + buyerName + " on " + saleDate + " for $" + finalPrice);
+        pet.setOwnerName(buyerName.getName());
+        pet.addToHistory("Sold to " + buyerName.getName() + " on " + saleDate + " for $" + finalPrice);
     }
 
     // Get all sales
@@ -65,7 +65,7 @@ public class SalesList {
     public List<SaleRecord> findSalesByBuyer(String buyerName) {
         List<SaleRecord> result = new ArrayList<>();
         for (SaleRecord record : sales) {
-            if (record.getBuyerName().equalsIgnoreCase(buyerName)) {
+            if (record.getBuyer().getName().equalsIgnoreCase(buyerName)) {
                 result.add(record);
             }
         }
@@ -90,7 +90,7 @@ public class SalesList {
             SaleRecord record = sales.get(i);
             sb.append(i + 1).append(") ")
                 .append("Pet: ").append(record.getPet().getName()).append(", ")
-                .append("Buyer: ").append(record.getBuyerName()).append(", ")
+                .append("Buyer: ").append(record.getBuyer()).append(", ")
                 .append("Sale Details: ").append(record.getSale()).append("\n");
         }
         return sb.toString();

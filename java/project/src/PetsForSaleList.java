@@ -15,18 +15,21 @@ public class PetsForSaleList {
     }
 
     // Sell a pet
-    public void sellPet(Pet pet, Date saleDate, double finalPrice, SalesList sales, String newOwnerName) {
+    public void sellPet(Pet pet, Date saleDate, double finalPrice, SalesList sales, Customer buyer) {
         if (petsForSale.contains(pet)) {
             // Mark the pet as sold
             try {
                 pet.markAsSold(saleDate, finalPrice);
-                pet.setOwnerName(newOwnerName);
+                pet.setOwnerName(buyer.getName());
+
+                //add pet to Customer's list of pets
+                buyer.addPet(pet);
 
                 // Remove the pet from the for-sale list
                 petsForSale.remove(pet);
 
                 // Add the sale to the SalesList
-                sales.addSale(pet.getSaleInfo());
+                sales.addSale(pet, buyer, saleDate,pet.getSaleInfo().getPrice(), finalPrice);
 
                 System.out.println("Pet sold: " + pet);
             } catch (IllegalStateException | IllegalArgumentException e) {
