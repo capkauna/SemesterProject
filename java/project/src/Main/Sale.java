@@ -1,4 +1,5 @@
 package Main;
+import java.util.Objects;
 
 public class Sale {
     private Date saleDate;
@@ -94,5 +95,22 @@ public class Sale {
         else{
             return "Price: " + price + ", for sale.";
         }
+    }
+
+    @Override public boolean equals(Object o)
+    {
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Sale sale = (Sale) o;
+        return Double.compare(getPrice(), sale.getPrice()) == 0
+            && Double.compare(getFinalPrice(), sale.getFinalPrice()) == 0
+            && isSold() == sale.isSold() && Objects.equals(getSaleDate(),
+            sale.getSaleDate());
+    }
+
+    @Override public int hashCode()
+    {
+        return Objects.hash(getSaleDate(), getPrice(), getFinalPrice(),
+            isSold());
     }
 }

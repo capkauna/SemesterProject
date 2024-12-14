@@ -3,6 +3,7 @@ package Main;
 import javafx.scene.image.Image;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public abstract class Pet {
     private String name;
@@ -81,6 +82,13 @@ public abstract class Pet {
         this.comments = comments;
     }
 
+    public Image getPhoto() {
+        return photo;
+    }
+    public void setPhoto(Image photo) {
+        this.photo = photo;
+    }
+
     //handling forSale situations
     public boolean isForSale(){
         return forSale;
@@ -112,12 +120,6 @@ public abstract class Pet {
         return saleInfo;
     }
 
-    public Image getPhoto() {
-        return photo;
-    }
-    public void setPhoto(Image photo) {
-        this.photo = photo;
-    }
 
     //handling situation where pet has an owner
     public String getOwnerName(){
@@ -133,7 +135,7 @@ public abstract class Pet {
         this.saleInfo = null;
         this.ownerName = ownerName;
     }
-    //handling history
+    //handling history pulled from SaleList (SaleRecord entries)
     public void addToHistory(String event) {
         if (event == null || event.isEmpty()) {
             throw new IllegalArgumentException("Event cannot be null or empty.");
@@ -165,5 +167,28 @@ public abstract class Pet {
         }
 
         return sb.toString();
+    }
+
+    @Override public boolean equals(Object o)
+    {
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Pet pet = (Pet) o;
+        return Double.compare(getAge(), pet.getAge()) == 0
+            && isForSale() == pet.isForSale() && Objects.equals(getName(),
+            pet.getName()) && Objects.equals(getGender(), pet.getGender())
+            && Objects.equals(getColor(), pet.getColor()) && Objects.equals(
+            getComments(), pet.getComments()) && Objects.equals(getPhoto(),
+            pet.getPhoto()) && Objects.equals(getOwnerName(),
+            pet.getOwnerName()) && Objects.equals(getSaleInfo(),
+            pet.getSaleInfo()) && Objects.equals(getHistory(),
+            pet.getHistory());
+    }
+
+    @Override public int hashCode()
+    {
+        return Objects.hash(getName(), getGender(), getAge(), getColor(),
+            getComments(), getPhoto(), isForSale(), getOwnerName(),
+            getSaleInfo(), getHistory());
     }
 }
