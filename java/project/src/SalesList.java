@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
 import Main.*;
 
 public class SalesList {
@@ -96,5 +98,16 @@ public class SalesList {
         return sb.toString();
     }
 
+    @Override public boolean equals(Object o)
+    {
+        if (o == null || getClass() != o.getClass())
+            return false;
+        SalesList salesList = (SalesList) o;
+        return Objects.equals(sales, salesList.sales);
+    }
 
+    @Override public int hashCode()
+    {
+        return Objects.hashCode(sales);
+    }
 }

@@ -1,6 +1,7 @@
 import Main.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class PetsForSaleList {
     private List<Pet> petsForSale = new ArrayList<>();
@@ -52,5 +53,18 @@ public class PetsForSaleList {
             sb.append(i + 1).append(". ").append(petsForSale.get(i)).append("\n");
         }
         return sb.toString();
+    }
+
+    @Override public boolean equals(Object o)
+    {
+        if (o == null || getClass() != o.getClass())
+            return false;
+        PetsForSaleList that = (PetsForSaleList) o;
+        return Objects.equals(getPetsForSale(), that.getPetsForSale());
+    }
+
+    @Override public int hashCode()
+    {
+        return Objects.hashCode(getPetsForSale());
     }
 }

@@ -35,9 +35,19 @@ public class PetList {
         }
         return result;
     }
+    public boolean removePet(int index) {
+        if (index < 0 || index >= petList.size()) {
+            throw new IndexOutOfBoundsException("Index " + index + " is invalid.");
+        }
+
+        petList.remove(index);
+        System.out.println("Pet removed");
+        return true; 
+    }
 
 
-//figured the list would be more useful if it had major information listed only
+
+    //figured the list would be more useful if it had major information listed only
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("Pet List:\n");
