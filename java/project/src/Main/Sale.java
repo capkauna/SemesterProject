@@ -1,4 +1,4 @@
-package Pets;
+package Main;
 
 public class Sale {
     private Date saleDate;
@@ -6,7 +6,7 @@ public class Sale {
     private double finalPrice;
     private boolean isSold;
 
-    //solf pet constructor for SalesList use only
+    //sold pet constructor for SalesList use only
     public Sale(Date saleDate,double price, double finalPrice) {
         if (saleDate == null)
         {

@@ -1,4 +1,4 @@
-package Pets;
+package Main;
 
 import javafx.scene.image.Image;
 import java.util.ArrayList;

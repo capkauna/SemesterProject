@@ -1,5 +1,5 @@
-import Pets.Date;
-import Pets.Pet;
+import Main.Date;
+import Main.Pet;
 
 public class PetshopTest {
     public static void main(String[] args) {

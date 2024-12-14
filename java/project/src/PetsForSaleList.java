@@ -1,4 +1,4 @@
-import Pets.*;
+import Main.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +15,7 @@ public class PetsForSaleList {
     }
 
     // Sell a pet
-    public void sellPet(Pet pet, Date saleDate, double finalPrice, SalesList salesList, String newOwnerName) {
+    public void sellPet(Pet pet, Date saleDate, double finalPrice, SalesList sales, String newOwnerName) {
         if (petsForSale.contains(pet)) {
             // Mark the pet as sold
             try {
@@ -26,7 +26,7 @@ public class PetsForSaleList {
                 petsForSale.remove(pet);
 
                 // Add the sale to the SalesList
-                salesList.addSale(pet.getSaleInfo());
+                sales.addSale(pet.getSaleInfo());
 
                 System.out.println("Pet sold: " + pet);
             } catch (IllegalStateException | IllegalArgumentException e) {

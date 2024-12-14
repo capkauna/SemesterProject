@@ -1,8 +1,7 @@
-package Pets;
+package Main;
 
 import javafx.scene.image.Image;
 
-import java.awt.*;
 import java.util.Objects;
 
 public class Bird extends Pet {

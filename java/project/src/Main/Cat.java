@@ -1,14 +1,14 @@
-package Pets;
+package Main;
 
 import javafx.scene.image.Image;
 
 import java.util.Objects;
 
-public class Dog extends Pet {
+public class Cat extends Pet {
     private String breed;
     private String breeder;
 
-    public Dog(String name, String gender, double age, String color, String comments, Image photo, boolean forSale, String ownerName, String breed, String breeder) {
+    public Cat(String name, String gender, double age, String color, String comments, Image photo, boolean forSale, String ownerName, String breed, String breeder) {
         super(name,gender,age,color,comments,photo,forSale,ownerName);
         if (breed == null){
             throw new IllegalArgumentException("Please add breed information");
@@ -42,9 +42,9 @@ public class Dog extends Pet {
     {
         if (o == null || getClass() != o.getClass())
             return false;
-        Dog dog = (Dog) o;
-        return Objects.equals(getBreed(), dog.getBreed()) && Objects.equals(
-            getBreeder(), dog.getBreeder());
+        Cat cat = (Cat) o;
+        return Objects.equals(getBreed(), cat.getBreed()) && Objects.equals(
+            getBreeder(), cat.getBreeder());
     }
 
     @Override public int hashCode()

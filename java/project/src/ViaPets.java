@@ -1,5 +1,5 @@
-import Pets.Pet;
-import Pets.Sale;
+import Main.Pet;
+import Main.Sale;
 
 import java.util.ArrayList;
 
