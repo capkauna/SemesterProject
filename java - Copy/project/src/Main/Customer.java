@@ -1,4 +1,4 @@
-import Main.*;
+package Main;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,7 +89,7 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer{" +
+        return "Main.Customer{" +
                 "name='" + name + '\'' +
                 ", phoneNo='" + phoneNo + '\'' +
                 ", address='" + address + '\'' +

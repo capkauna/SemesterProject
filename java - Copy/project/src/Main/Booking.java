@@ -1,9 +1,9 @@
-  import java.util.Objects;
+package Main;
 
 public class Booking {
   private DateInterval dateInterval;
   private Pet pet;
-  private Customer customer; 
+  private Customer customer;
   private double pricePerDay;
   
   public Booking(Date startDate , Date endDate, Pet pet, Customer customer, double pricePerDay) {
@@ -63,7 +63,7 @@ public class Booking {
 
   @Override
   public String toString() {
-    return "Booking for " + pet + " by " + customer + ", Total Price: " + totalPrice();
+    return "Main.Booking for " + pet + " by " + customer + ", Total Price: " + totalPrice();
   }
   public boolean equals(Object obj) {
     if (this == obj) return true;
