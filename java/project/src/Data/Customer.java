@@ -1,4 +1,4 @@
-package Main;
+package Data;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package Main;
+package Data;
 
 import javafx.scene.image.Image;
 import java.util.ArrayList;

@@ -1,5 +1,4 @@
-package Main;
-import java.io.*;
+package Data;
 import java.util.ArrayList;
 
 public class CustomerList {

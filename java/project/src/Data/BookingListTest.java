@@ -1,4 +1,4 @@
-package Main;
+package Data;
 
 public class BookingListTest {
     public static void main(String[] args) {

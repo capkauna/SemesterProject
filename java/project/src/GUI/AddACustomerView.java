@@ -1,7 +1,7 @@
 package GUI;
 
-import Main.Customer;
-import Main.CustomerList;
+import Data.Customer;
+import Data.CustomerList;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;

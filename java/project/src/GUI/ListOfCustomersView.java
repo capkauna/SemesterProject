@@ -1,11 +1,11 @@
 package GUI;
 
-import Main.Customer;
+import Data.Customer;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import Main.*;
+import Data.*;
 
 import java.io.IOException;
 

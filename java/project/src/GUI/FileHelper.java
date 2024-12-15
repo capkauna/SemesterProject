@@ -1,7 +1,5 @@
 package GUI;
 
-import Main.Customer;
-
 import java.io.*;
 import java.util.ArrayList;
 
