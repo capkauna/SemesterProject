@@ -20,6 +20,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ElinaG2&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/capkauna/SemesterProject.git&quot;,
+    &quot;accountId&quot;: &quot;449f6343-d73c-4d83-820e-99fd5c884b2e&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -34,12 +46,17 @@
     "Application.CustomerListTest.executor": "Run",
     "Application.CustomerTest.executor": "Run",
     "Application.PetshopTest.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.CustomerListTest.testAddCustomer.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/piter/OneDrive - ViaUC/Documents/GitHub/SemesterProject/java",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+    "last_opened_file_path": "C:/Users/Bruger/Documents/GitHub/SemesterProject/java",
+    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -47,33 +64,44 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.PetshopTest">
+  <component name="RunManager" selected="Application.CustomerListTest">
     <configuration name="CustomerListTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="CustomerListTest" />
-      <module name="Customer" />
+      <module name="project" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="CustomerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="CustomerTest" />
-      <module name="Customer" />
+      <module name="project" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="PetshopTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="PetshopTest" />
-      <module name="Petshop" />
+      <module name="project" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerListTest.testAddCustomer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CustomerListTest" />
+      <option name="METHOD_NAME" value="testAddCustomer" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.PetshopTest" />
         <item itemvalue="Application.CustomerListTest" />
         <item itemvalue="Application.CustomerTest" />
+        <item itemvalue="JUnit.CustomerListTest.testAddCustomer" />
+        <item itemvalue="Application.PetshopTest" />
       </list>
     </recent_temporary>
   </component>
@@ -90,5 +118,16 @@
       <updated>1733786347870</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/project/src/Pet.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
