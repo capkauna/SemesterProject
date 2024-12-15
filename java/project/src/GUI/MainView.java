@@ -93,7 +93,7 @@ public class MainView extends Application {
         Pane petshopPane = new Pane();
         petshopPane.setBackground(new Background(new BackgroundFill(Color.LIGHTBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
         Button petshopButton1 = new Button("Sell a pet");
-        Button petshopButton2 = new Button("List of Pets for sale");
+        Button petshopButton2 = new Button("Pets for sale");
         Button petshopBackButton = new Button("Back to Main Page");
 
         petshopButton1.setStyle("-fx-font-size: 20px; -fx-background-color: white");
@@ -210,7 +210,9 @@ public class MainView extends Application {
         petshopButton1.setOnAction(e -> {primaryStage.setScene(petshop1Scene);
             sellAPetView.refresh();
         });
-        petshopButton2.setOnAction(e -> {primaryStage.setScene(petshop2Scene);});
+        petshopButton2.setOnAction(e -> {primaryStage.setScene(petshop2Scene);
+            petsForSaleView.refresh();
+        });
 
         //Pets
         petsButton1.setOnAction(e -> {primaryStage.setScene(pets1Scene);});

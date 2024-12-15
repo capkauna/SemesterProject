@@ -187,17 +187,14 @@ public class SellAPetView {
         }
 
         try {
-
             Customer customerToSave = null;
             Pet petToSave = null;
-
             for (Customer customer : customers) {
                 if (customer.getName().equals(selectedCustomer)) {
                     customerToSave = customer;
                     break;
                 }
             }
-
             for (Pet pet : pets) {
                 if (pet.getName().equals(selectedPet)) {
                     petToSave = pet;
@@ -207,6 +204,7 @@ public class SellAPetView {
 
             Date saleDateToSave = new Date(saleDate.getDayOfMonth(), saleDate.getMonthValue(), saleDate.getYear());
             SalesList sale  = new SalesList();
+            //TODO Use the correct priceText for original sale vs offer price
             sale.addSale(petToSave, customerToSave, saleDateToSave, Double.parseDouble(priceText), Double.parseDouble(priceText));
             FileHelper.saveToFile(saleFileName, sale.getAllSales());
 
