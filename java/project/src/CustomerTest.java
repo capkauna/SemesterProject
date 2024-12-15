@@ -4,7 +4,7 @@ public class CustomerTest
   public static void main(String[] args)
   {
     Customer customer = new Customer("Fifi Malaga", "1234567890", "Sonderbro",
-        "fifi123@via.dk", null, null);
+        "fifi123@via.dk");
 
 
 

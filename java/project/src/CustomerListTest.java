@@ -4,8 +4,8 @@ public class CustomerListTest {
 
 CustomerList customerList = new CustomerList();
 Customer customer1 = new Customer("Fifi Malaga", "1234567890", "Sonderbro",
-    "fifi123@via.dk", null, null);
-Customer customer2 = new Customer("Gloria Gayana", "3456789234", "IWill Survive", "spoty@via.dk", null, null);
+    "fifi123@via.dk");
+Customer customer2 = new Customer("Gloria Gayana", "3456789234", "IWill Survive", "spoty@via.dk");
 
     customerList.addCustomer(customer1);
     customerList.addCustomer(customer2);
