@@ -20,11 +20,11 @@ public class ListOfPetsView
         listOfPetsPane.getChildren().clear();
         listOfPetsPane.setBackground(new Background(new BackgroundFill(Color.LIGHTBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
 
-
-        // Create and style ListView for customers
+        // Create and style ListView for pets
         petListView = new ListView<>();
-        petListView.setPrefWidth(400);
-        petListView.setPrefHeight(300);
+        petListView.setPrefWidth(420);
+        petListView.setLayoutX(20);
+        petListView.setLayoutY(60);
         petListView.setStyle("-fx-font-size: 16px;");
 
         // Create and style back button
