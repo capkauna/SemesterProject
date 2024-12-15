@@ -1,6 +1,4 @@
-import Main.Date;
-import Main.Pet;
-import Main.*;
+package Main;
 
 public class PetshopTest {
     public static void main(String[] args) {

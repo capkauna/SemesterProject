@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import javafx.scene.paint.Color;
 import javafx.geometry.Insets;
 
-public class GUI extends Application {
+public class GUIController extends Application {
     public void start(Stage primaryStage) {
         Pane mainPane = new Pane();
         mainPane.setBackground(new Background(new BackgroundFill(Color.LIGHTBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
@@ -73,13 +73,13 @@ public class GUI extends Application {
         Pane kennel2Pane = new Pane();
         Scene kennel2Scene = new Scene(kennel2Pane, 420, 420);
 
-        //Add Booking (Kennel)
-        AddBooking addBooking = new AddBooking(kennel1Pane);
-        addBooking.getBackButton().setOnAction(e -> {primaryStage.setScene(kennelScene);});
+        //Add Main.Booking (Kennel)
+        AddBookingView addBookingView = new AddBookingView(kennel1Pane);
+        addBookingView.getBackButton().setOnAction(e -> {primaryStage.setScene(kennelScene);});
 
         //View Bookings (Kennel)
-        ViewBooking viewBooking = new ViewBooking(kennel2Pane);
-        viewBooking.getBackButton().setOnAction(e -> {primaryStage.setScene(kennelScene);});
+        ViewBookingView viewBookingView = new ViewBookingView(kennel2Pane);
+        viewBookingView.getBackButton().setOnAction(e -> {primaryStage.setScene(kennelScene);});
 
         //Petshop
         Pane petshopPane = new Pane();
@@ -111,12 +111,12 @@ public class GUI extends Application {
         Scene petshop2Scene = new Scene(petshop2Pane, 420, 420);
 
         //Sell a pet
-        SellAPet sellAPet = new SellAPet(petshop1Pane);
-        sellAPet.getBackButton().setOnAction(e -> {primaryStage.setScene(petshopScene);});
+        SellAPetView sellAPetView = new SellAPetView(petshop1Pane);
+        sellAPetView.getBackButton().setOnAction(e -> {primaryStage.setScene(petshopScene);});
 
         //List of pets for sale
-        PetsForSale petsForSale = new PetsForSale(petshop2Pane);
-        petsForSale.getBackButton().setOnAction(e -> {primaryStage.setScene(petshopScene);});
+        PetsForSaleView petsForSaleView = new PetsForSaleView(petshop2Pane);
+        petsForSaleView.getBackButton().setOnAction(e -> {primaryStage.setScene(petshopScene);});
 
         //Pets
         Pane petsPane = new Pane();
@@ -148,12 +148,12 @@ public class GUI extends Application {
         Scene pets2Scene = new Scene(pets2Pane, 420, 420);
 
         //Add a pet
-        AddAPet addAPet = new AddAPet(pets1Pane);
-        addAPet.getBackButton().setOnAction(e -> {primaryStage.setScene(petsScene);});
+        AddAPetView addAPetView = new AddAPetView(pets1Pane);
+        addAPetView.getBackButton().setOnAction(e -> {primaryStage.setScene(petsScene);});
 
         //List of pets
-        ListOfPets listOfPets = new ListOfPets(pets2Pane);
-        listOfPets.getBackButton().setOnAction(e -> {primaryStage.setScene(petsScene);});
+        ListOfPetsView listOfPetsView = new ListOfPetsView(pets2Pane);
+        listOfPetsView.getBackButton().setOnAction(e -> {primaryStage.setScene(petsScene);});
 
         //Customers
         Pane customersPane = new Pane();
@@ -186,12 +186,12 @@ public class GUI extends Application {
         Scene customers2Scene = new Scene(customers2Pane, 420, 420);
 
         //Add a customer
-        AddACustomer addACustomer = new AddACustomer(customers1Pane);
+        AddACustomerView addACustomer = new AddACustomerView(customers1Pane);
         addACustomer.getBackButton().setOnAction(e -> {primaryStage.setScene(customersScene);});
 
         //List of customers
-        ListOfCustomers listOfCustomers = new ListOfCustomers(customers2Pane);
-        listOfCustomers.getBackButton().setOnAction(e -> {primaryStage.setScene(customersScene);});
+        ListOfCustomersView listOfCustomersView = new ListOfCustomersView(customers2Pane);
+        listOfCustomersView.getBackButton().setOnAction(e -> {primaryStage.setScene(customersScene);});
 
         button1.setOnAction(e -> {primaryStage.setScene(kennelScene);primaryStage.setTitle("Kennel Management");});
         button2.setOnAction(e -> {primaryStage.setScene(petshopScene);primaryStage.setTitle("Petshop Management");});
@@ -212,7 +212,9 @@ public class GUI extends Application {
 
         //customers
         customersButton1.setOnAction(e -> {primaryStage.setScene(customers1Scene);});
-        customersButton2.setOnAction(e -> {primaryStage.setScene(customers2Scene);});
+        customersButton2.setOnAction(e -> {primaryStage.setScene(customers2Scene);
+            listOfCustomersView.refresh();
+        });
 
         kennelBackButton.setOnAction(e -> {primaryStage.setScene(mainScene);primaryStage.setTitle("");});
         petshopBackButton.setOnAction(e -> {primaryStage.setScene(mainScene);primaryStage.setTitle("");});

@@ -6,15 +6,16 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import java.time.LocalDate;
 
-public class SellAPet {
+public class SellAPetView
+{
     private final Button backButton;
 
-    public SellAPet(Pane sellAPetPane) {
+    public SellAPetView(Pane sellAPetPane) {
         sellAPetPane.getChildren().clear();
         sellAPetPane.setBackground(new Background(new BackgroundFill(Color.LIGHTBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
 
-        // Customer
-        Label customerLabel = new Label("Choose a Customer:");
+        // Main.Customer
+        Label customerLabel = new Label("Choose a Main.Customer:");
         customerLabel.setLayoutX(20);
         customerLabel.setLayoutY(60);
         customerLabel.setStyle("-fx-font-size: 16px;");

@@ -6,15 +6,16 @@ import javafx.scene.paint.Color;
 import javafx.geometry.Insets;
 import java.time.LocalDate;
 
-public class AddBooking {
+public class AddBookingView
+{
     private final Button backButton; // Back button reference
 
-    public AddBooking(Pane bookingPane) {
+    public AddBookingView(Pane bookingPane) {
         bookingPane.getChildren().clear();
         bookingPane.setBackground(new Background(new BackgroundFill(Color.LIGHTBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
 
-        // Customer
-        Label bookingLabel1 = new Label("Choose a Customer:");
+        // Main.Customer
+        Label bookingLabel1 = new Label("Choose a Main.Customer:");
         bookingLabel1.setLayoutX(20);
         bookingLabel1.setLayoutY(60);
         bookingLabel1.setStyle("-fx-font-size: 16px;");

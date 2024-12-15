@@ -1,4 +1,5 @@
-import Main.*;
+package Main;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -23,13 +24,13 @@ public class PetsForSaleList {
                 pet.markAsSold(saleDate, finalPrice);
                 pet.setOwnerName(buyer.getName());
 
-                //add pet to Customer's list of pets
+                //add pet to Main.Customer's list of pets
                 buyer.addPet(pet);
 
                 // Remove the pet from the for-sale list
                 petsForSale.remove(pet);
 
-                // Add the sale to the SalesList
+                // Add the sale to the Main.SalesList
                 sales.addSale(pet, buyer, saleDate,pet.getSaleInfo().getPrice(), finalPrice);
 
                 System.out.println("Pet sold: " + pet);

@@ -1,3 +1,5 @@
+package Main;
+
 public class CustomerListTest {
 
   public static void main(String[] args) {
@@ -11,15 +13,15 @@ Customer customer2 = new Customer("Gloria Gayana", "3456789234", "IWill Survive"
     customerList.addCustomer(customer2);
 
     System.out.println("All Customers: ");
-    for (Customer c : customerList.getAllCustomer()) {
+    for (Customer c : customerList.getAllCustomers()) {
     System.out.println(c);
     }
 
-        System.out.println("Get Customer at Index 1: " + customerList.getCustomer(1));
+        System.out.println("Get Main.Customer at Index 1: " + customerList.getCustomer(1));
 
     customerList.cancelCustomer(0);
     System.out.println("All Customers after removal: ");
-    for (Customer c : customerList.getAllCustomer()) {
+    for (Customer c : customerList.getAllCustomers()) {
     System.out.println(c);
     }
 
@@ -35,7 +37,7 @@ Customer customer2 = new Customer("Gloria Gayana", "3456789234", "IWill Survive"
     System.out.println("Error: " + e.getMessage());
     }
 
-    System.out.println("CustomerList toString: " + customerList);
+    System.out.println("Main.CustomerList toString: " + customerList);
   }
       }
 

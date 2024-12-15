@@ -5,10 +5,11 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
-public class AddAPet {
+public class AddAPetView
+{
     private final Button backButton;
 
-    public AddAPet(Pane addAPetPane) {
+    public AddAPetView(Pane addAPetPane) {
         addAPetPane.getChildren().clear();
         addAPetPane.setBackground(new Background(new BackgroundFill(Color.LIGHTBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
 

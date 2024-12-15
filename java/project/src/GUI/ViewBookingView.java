@@ -5,11 +5,12 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.geometry.Insets;
 
-public class ViewBooking {
+public class ViewBookingView
+{
 
     private final Button backButton; // Back button reference
 
-    public ViewBooking(Pane viewBookingPane) {
+    public ViewBookingView(Pane viewBookingPane) {
         // Clear existing children to repurpose the Pane
         viewBookingPane.getChildren().clear();
         viewBookingPane.setBackground(new Background(new BackgroundFill(Color.LIGHTBLUE, CornerRadii.EMPTY, Insets.EMPTY)));

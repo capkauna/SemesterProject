@@ -1,6 +1,4 @@
-import Main.Bird;
-import Main.Date;
-import Main.Pet;
+package Main;
 
 public class TestClass
 {

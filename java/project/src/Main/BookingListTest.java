@@ -1,5 +1,4 @@
-
-import Main.*;
+package Main;
 
 public class BookingListTest {
     public static void main(String[] args) {
@@ -18,7 +17,7 @@ public class BookingListTest {
         Booking booking1 = new Booking(startDate1, endDate1, pet1, customer1, 50.0);
         Booking booking2 = new Booking(startDate2, endDate2, pet2, customer2, 40.0);
 
-        // Create BookingList
+        // Create Main.BookingList
         BookingList bookingList = new BookingList(2);
 
         // Test: Add bookings
@@ -54,14 +53,14 @@ public class BookingListTest {
         }
 
         // Test: toString method
-        System.out.println("\nBookingList toString:");
+        System.out.println("\nMain.BookingList toString:");
         System.out.println(bookingList);
 
         // Test: Equals method
         BookingList bookingList2 = new BookingList(2);
         bookingList2.addBooking(booking1);
         bookingList2.addBooking(booking2);
-        System.out.println("\nBookingList equals test:");
+        System.out.println("\nMain.BookingList equals test:");
         System.out.println(bookingList.equals(bookingList2)); // Should be false due to cancellations
     }
 }

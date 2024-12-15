@@ -1,5 +1,4 @@
-import Main.Pet;
-import Main.Sale;
+package Main;
 
 import java.util.ArrayList;
 

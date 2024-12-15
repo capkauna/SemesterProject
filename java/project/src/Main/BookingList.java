@@ -1,3 +1,5 @@
+package Main;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,6 +69,6 @@ public class BookingList {
   // toString method
   @Override
   public String toString() {
-    return "BookingList[occupiedCages=" + occupiedCages + ", capacity=" + capacity + ", allBookings=" + allbookings + ']';
+    return "Main.BookingList[occupiedCages=" + occupiedCages + ", capacity=" + capacity + ", allBookings=" + allbookings + ']';
   }
 }
