@@ -20,21 +20,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-<<<<<<< Updated upstream
-=======
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;ElinaG2&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/capkauna/SemesterProject.git&quot;,
-    &quot;accountId&quot;: &quot;449f6343-d73c-4d83-820e-99fd5c884b2e&quot;
-  }
-}</component>
->>>>>>> Stashed changes
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -44,7 +29,6 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-<<<<<<< Updated upstream
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.CustomerListTest.executor&quot;: &quot;Run&quot;,
@@ -61,24 +45,6 @@
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Bruger/Desktop/java&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
-=======
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.CustomerListTest.executor": "Run",
-    "Application.CustomerTest.executor": "Run",
-    "Application.PetshopTest.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.CustomerListTest.testAddCustomer.executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/piter/OneDrive - ViaUC/Documents/GitHub/SemesterProject/java",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
->>>>>>> Stashed changes
   }
 }</component>
   <component name="RecentsManager">
