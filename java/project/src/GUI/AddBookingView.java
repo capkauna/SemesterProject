@@ -15,7 +15,7 @@ public class AddBookingView
         bookingPane.setBackground(new Background(new BackgroundFill(Color.LIGHTBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
 
         // Main.Customer
-        Label bookingLabel1 = new Label("Choose a Main.Customer:");
+        Label bookingLabel1 = new Label("Choose a Customer:");
         bookingLabel1.setLayoutX(20);
         bookingLabel1.setLayoutY(60);
         bookingLabel1.setStyle("-fx-font-size: 16px;");
@@ -27,6 +27,7 @@ public class AddBookingView
         customerComboBox.setLayoutY(90);
         customerComboBox.setPrefWidth(380);
 
+        // TODO - Add customers from the list
         customerComboBox.getItems().addAll("1", "2", "3", "4");
         bookingPane.getChildren().add(customerComboBox);
 
@@ -43,6 +44,7 @@ public class AddBookingView
         petComboBox.setLayoutY(150);
         petComboBox.setPrefWidth(380);
 
+        // TODO get pets from the list
         petComboBox.getItems().addAll("1", "2", "3", "4");
         bookingPane.getChildren().add(petComboBox);
 

@@ -1,13 +1,17 @@
 package GUI;
 
+import Data.*;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
+import java.io.IOException;
+
 public class AddAPetView
 {
     private final Button backButton;
+    private final String fileName = "pet.dat";
 
     public AddAPetView(Pane addAPetPane) {
         addAPetPane.getChildren().clear();
@@ -162,8 +166,19 @@ public class AddAPetView
                         resultLabel.setText("");
                         resultLabel2.setText("Pet successfully added");
                     }
+
+                    // get list from file
+                    Pet newPet = new Cat(nameField.getText(), selectedGender, age, colorField.getText(), commentsField.getText(), "null", false, "", selectedPet, "null");
+                    PetListContainer listContainer = new PetListContainer(FileHelper.loadFromFile(fileName));
+
+                    listContainer.addPet(newPet);
+                    FileHelper.saveToFile(fileName, listContainer.getAllPets()); // Save to file
                 } catch (NumberFormatException ex) {
                     resultLabel.setText("Age must be a number.");
+                }
+                catch (ClassNotFoundException | IOException ex)
+                {
+                  throw new RuntimeException(ex);
                 }
             }
         });

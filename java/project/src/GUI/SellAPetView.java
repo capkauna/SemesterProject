@@ -15,7 +15,7 @@ public class SellAPetView
         sellAPetPane.setBackground(new Background(new BackgroundFill(Color.LIGHTBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
 
         // Main.Customer
-        Label customerLabel = new Label("Choose a Main.Customer:");
+        Label customerLabel = new Label("Choose a Customer:");
         customerLabel.setLayoutX(20);
         customerLabel.setLayoutY(60);
         customerLabel.setStyle("-fx-font-size: 16px;");

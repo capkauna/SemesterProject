@@ -204,7 +204,9 @@ public class GUIController extends Application {
 
         //Pets
         petsButton1.setOnAction(e -> {primaryStage.setScene(pets1Scene);});
-        petsButton2.setOnAction(e -> {primaryStage.setScene(pets2Scene);});
+        petsButton2.setOnAction(e -> {primaryStage.setScene(pets2Scene);
+            listOfPetsView.refresh();
+        });
 
         //kennel
         kennelButton1.setOnAction(e -> {primaryStage.setScene(kennel1Scene);});

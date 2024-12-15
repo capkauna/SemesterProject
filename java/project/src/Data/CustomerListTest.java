@@ -4,7 +4,7 @@ public class CustomerListTest {
 
   public static void main(String[] args) {
 
-CustomerList customerList = new CustomerList();
+CustomerListContainer customerList = new CustomerListContainer();
 Customer customer1 = new Customer("Fifi Malaga", "1234567890", "Sonderbro",
     "fifi123@via.dk");
 Customer customer2 = new Customer("Gloria Gayana", "3456789234", "IWill Survive", "spoty@via.dk");

@@ -13,7 +13,7 @@ public class ListOfCustomersView
 {
     private final Button backButton;
     private final ListView<String> customerListView; // A ListView to display customer names
-    private CustomerList listContainer = null;
+    private CustomerListContainer listContainer = null;
 
     public ListOfCustomersView(Pane listOfCustomersPane) {
         // Clear and set background
@@ -44,7 +44,7 @@ public class ListOfCustomersView
     public void refresh() {
         // Load customers from file
         try {
-            listContainer = new CustomerList(FileHelper.loadFromFile("customers.dat"));
+            listContainer = new CustomerListContainer(FileHelper.loadFromFile("customers.dat"));
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("No existing customer data found.");
         }

@@ -1,7 +1,9 @@
 package Data;
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Sale {
+public class Sale implements Serializable
+{
     private Date saleDate;
     private double price;
     private double finalPrice;

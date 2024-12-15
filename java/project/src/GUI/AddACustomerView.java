@@ -1,7 +1,7 @@
 package GUI;
 
 import Data.Customer;
-import Data.CustomerList;
+import Data.CustomerListContainer;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
@@ -128,7 +128,7 @@ public class AddACustomerView
         try {
           // get list from file
           Customer newCustomer = new Customer(nameText, nrText, addressText, emailText);
-          CustomerList listContainer = new CustomerList(FileHelper.loadFromFile("customers.dat"));
+          CustomerListContainer listContainer = new CustomerListContainer(FileHelper.loadFromFile("customers.dat"));
 
           listContainer.addCustomer(newCustomer);
           FileHelper.saveToFile("customers.dat", listContainer.getAllCustomers()); // Save to file

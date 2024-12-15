@@ -14,8 +14,8 @@ public class Fish extends Pet {
         Saltwater
     }
 
-    public Fish(String name, String gender, double age, String color, String comments, Image photo, boolean forSale, String ownerName, String species, WaterType waterType, String possiblePredators) {
-        super(name,gender,age,color,comments,photo,forSale,ownerName);
+    public Fish(String name, String gender, double age, String color, String comments, String photoUrl, boolean forSale, String ownerName, String species, WaterType waterType, String possiblePredators) {
+        super(name,gender,age,color,comments,photoUrl,forSale,ownerName);
         if (waterType == null)
         {
             throw new IllegalArgumentException("Please specify water type");

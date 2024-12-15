@@ -2,8 +2,8 @@ package Data;
 
 public class PetshopTest {
     public static void main(String[] args) {
-        CustomerList customerList = new CustomerList();
-        PetList petList = new PetList();
+        CustomerListContainer customerList = new CustomerListContainer();
+        PetListContainer petList = new PetListContainer();
         PetsForSaleList petsForSaleList = new PetsForSaleList();
         SalesList salesList = new SalesList();
 

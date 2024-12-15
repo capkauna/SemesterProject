@@ -1,39 +1,45 @@
 package Data;
 
 import javafx.scene.image.Image;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public abstract class Pet {
+public abstract class Pet implements Serializable
+{
     private String name;
     private String gender;
     private double age;
     private String color;
     private String comments;
-    private Image photo;
+    //TODO
+    private String photoUrl;
     private boolean forSale;
     private String ownerName;
     private Sale saleInfo;
     private List<String> history = new ArrayList<>();
 
 
-    public Pet(String name, String gender, double age, String color, String comments, Image photo, boolean forSale, String ownerName)
+    public Pet(String name, String gender, double age, String color, String comments, String photoUrl, boolean forSale, String ownerName)
     {
+        //TODO validate correctly pet state should we add a new input in pet list to determin either
+        // Pet is owned or pet is marked for sale/salable?
         validateAssignment(ownerName,forSale);
         this.name = name;
         this.gender = gender;
         this.age = age;
         this.color = color;
         this.comments = comments;
-        this.photo = photo;
+        this.photoUrl = photoUrl;
         this.forSale = forSale;
         this.ownerName = ownerName;
         this.saleInfo = null;
     }
     //constructor without name
-    public Pet(String gender, double age, String color, String comments, Image photo, boolean forSale, String ownerName) {
-        this(null, gender,age,color,comments,photo,forSale,ownerName);
+    public Pet(String gender, double age, String color, String comments, String photoUrl, boolean forSale, String ownerName) {
+        this(null, gender,age,color,comments,photoUrl,forSale,ownerName);
     }
     //constructor without photo, has name because petshop pets are the only ones that can be without a name, and those NEED a photo
     public Pet(String name, String gender, double age, String color, String comments, boolean forSale, String ownerName) {
@@ -82,11 +88,11 @@ public abstract class Pet {
         this.comments = comments;
     }
 
-    public Image getPhoto() {
-        return photo;
+    public String getPhotoUrl() {
+        return photoUrl;
     }
-    public void setPhoto(Image photo) {
-        this.photo = photo;
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
     }
 
     //handling forSale situations
@@ -156,7 +162,7 @@ public abstract class Pet {
             .append(", Age: ").append(age)
             .append(", Color: ").append(color)
             .append(", Comments: ").append(comments)
-            .append(", Photo: ").append(photo != null ? "Available" : "None");
+            .append(", Photo: ").append(photoUrl != null ? "Available" : "None");
 
         if (ownerName != null) {
             sb.append(", Owner: ").append(ownerName);
@@ -178,8 +184,8 @@ public abstract class Pet {
             && isForSale() == pet.isForSale() && Objects.equals(getName(),
             pet.getName()) && Objects.equals(getGender(), pet.getGender())
             && Objects.equals(getColor(), pet.getColor()) && Objects.equals(
-            getComments(), pet.getComments()) && Objects.equals(getPhoto(),
-            pet.getPhoto()) && Objects.equals(getOwnerName(),
+            getComments(), pet.getComments()) && Objects.equals(getPhotoUrl(),
+            pet.getPhotoUrl()) && Objects.equals(getOwnerName(),
             pet.getOwnerName()) && Objects.equals(getSaleInfo(),
             pet.getSaleInfo()) && Objects.equals(getHistory(),
             pet.getHistory());
@@ -188,7 +194,7 @@ public abstract class Pet {
     @Override public int hashCode()
     {
         return Objects.hash(getName(), getGender(), getAge(), getColor(),
-            getComments(), getPhoto(), isForSale(), getOwnerName(),
+            getComments(), getPhotoUrl(), isForSale(), getOwnerName(),
             getSaleInfo(), getHistory());
     }
 }

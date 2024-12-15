@@ -1,14 +1,15 @@
 package Data;
 import java.util.ArrayList;
 
-public class CustomerList {
+public class CustomerListContainer
+{
   private ArrayList<Customer> customers;
 
-  public CustomerList() {
+  public CustomerListContainer() {
     this.customers = new ArrayList<>();
   }
 
-  public CustomerList(ArrayList<Customer> customers) {
+  public CustomerListContainer(ArrayList<Customer> customers) {
     this.customers = customers;
   }
 
@@ -43,7 +44,7 @@ public class CustomerList {
       return true;
     if (obj == null || getClass() != obj.getClass())
       return false;
-    CustomerList that = (CustomerList) obj;
+    CustomerListContainer that = (CustomerListContainer) obj;
     return customers.equals(that.customers);
   }
 

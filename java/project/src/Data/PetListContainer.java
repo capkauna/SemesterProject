@@ -4,9 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class PetList {
+public class PetListContainer
+{
+    private List<Pet> petList;
 
-    private List<Pet> petList = new ArrayList<>();
+    public PetListContainer(ArrayList<Pet> petList) {
+        this.petList = petList;
+    }
+
+    public PetListContainer() {
+        petList = new ArrayList<>();
+    }
 
     public void addPet(Pet pet) {
         petList.add(pet);
@@ -23,7 +31,7 @@ public class PetList {
         return petList.get(index);
     }
 
-    public List<Pet> getAllPets() {
+    public ArrayList<Pet> getAllPets() {
         return new ArrayList<>(petList); //returning a copy to avoid accidental modification
     }
     public List<Pet> findPetsByName(String name) {
@@ -70,7 +78,7 @@ public class PetList {
     {
         if (o == null || getClass() != o.getClass())
             return false;
-        PetList petList1 = (PetList) o;
+        PetListContainer petList1 = (PetListContainer) o;
         return Objects.equals(petList, petList1.petList);
     }
 

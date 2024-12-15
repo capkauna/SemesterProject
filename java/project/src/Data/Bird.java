@@ -8,8 +8,8 @@ public class Bird extends Pet {
     private String species;
     private String preferredFood;
 
-    public Bird(String name, String gender, double age, String color, String comments, Image photo, boolean forSale, String ownerName, String species, String preferredFood) {
-        super(name,gender,age,color,comments,photo,forSale,ownerName);
+    public Bird(String name, String gender, double age, String color, String comments, String photoUrl, boolean forSale, String ownerName, String species, String preferredFood) {
+        super(name,gender,age,color,comments,photoUrl,forSale,ownerName);
         if (species == null)
         {
             throw new IllegalArgumentException("Please add species information");

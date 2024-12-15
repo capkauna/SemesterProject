@@ -2,14 +2,16 @@ package Data;
 
 import javafx.scene.image.Image;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Cat extends Pet {
+public class Cat extends Pet implements Serializable
+{
     private String breed;
     private String breeder;
 
-    public Cat(String name, String gender, double age, String color, String comments, Image photo, boolean forSale, String ownerName, String breed, String breeder) {
-        super(name,gender,age,color,comments,photo,forSale,ownerName);
+    public Cat(String name, String gender, double age, String color, String comments, String photoUrl, boolean forSale, String ownerName, String breed, String breeder) {
+        super(name,gender,age,color,comments,photoUrl,forSale,ownerName);
         if (breed == null){
             throw new IllegalArgumentException("Please add breed information");
         }

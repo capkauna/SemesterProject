@@ -8,8 +8,8 @@ public class Various extends Pet {
     private String species;
     private String otherInfo;
 
-    public Various(String name, String gender, double age, String color, String comments, Image photo, boolean forSale, String ownerName, String species, String otherInfo) {
-        super(name,gender,age,color,comments,photo,forSale,ownerName);
+    public Various(String name, String gender, double age, String color, String comments, String photoUrl, boolean forSale, String ownerName, String species, String otherInfo) {
+        super(name,gender,age,color,comments,photoUrl,forSale,ownerName);
         this.species = species;
         this.otherInfo = otherInfo;
     }

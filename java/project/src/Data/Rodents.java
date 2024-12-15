@@ -8,8 +8,8 @@ public class Rodents extends Pet {
     private String species;
     private boolean bites; // can be a String for additional context (e.g., "Yes, occasionally") That can be added to comments section
 
-    public Rodents(String name, String gender, double age, String color, String comments, Image photo, boolean forSale, String ownerName, String species, boolean bites) {
-        super(name,gender,age,color,comments,photo,forSale,ownerName);
+    public Rodents(String name, String gender, double age, String color, String comments, String photoUrl, boolean forSale, String ownerName, String species, boolean bites) {
+        super(name,gender,age,color,comments,photoUrl,forSale,ownerName);
         this.species = species;
         this.bites = bites;
     }
