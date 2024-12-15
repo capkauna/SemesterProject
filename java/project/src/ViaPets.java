@@ -3,7 +3,7 @@ import Main.Sale;
 
 import java.util.ArrayList;
 
-public class VIAPets {
+public class ViaPets {
 
 
   public ArrayList<Customer> getAllCustomers() {

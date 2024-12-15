@@ -4,10 +4,10 @@ import Main.*;
 public class BookingListTest {
     public static void main(String[] args) {
         // Test data setup
-        Pet pet1 = new Pet("Buddy", "Dog", 5);
-        Pet pet2 = new Pet("Whiskers", "Cat", 3);
-        Customer customer1 = new Customer("John Doe", "123456789");
-        Customer customer2 = new Customer("Jane Smith", "987654321");
+        Pet pet1 = new Dog("Rex", "Dog", 5, "Brown", "Friendly", null, false, "John Doe", "Labrador", "Breeder1");
+        Pet pet2 = new Cat("Whiskers", "Cat", 3, "White", "Playful", null, false, "Jane Smith", "Siamese", "Breeder2");
+        Customer customer1 = new Customer("John Doe", "123456789", "Address 99, Horsens", "john@john.dk");
+        Customer customer2 = new Customer("Jane Smith", "987654321", "Address 100, Horsens", "jane@jane.dk");
 
         Date startDate1 = new Date(2023 - 1900, 11, 1); // December 1, 2023
         Date endDate1 = new Date(2023 - 1900, 11, 5); // December 5, 2023

@@ -12,7 +12,6 @@ public class CustomerTest
     System.out.println("Customer Phone: " + customer.getPhoneNo());
     System.out.println("Customer Address: " + customer.getAddress());
     System.out.println("Customer Email: " + customer.getEmail());
-    System.out.println("Customer Booking: " + customer.getBooking());
     System.out.println("Customer Pets.Pet: " + customer.getPets());
 
     customer.setName("Fifi Malaga");

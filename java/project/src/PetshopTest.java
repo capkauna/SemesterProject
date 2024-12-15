@@ -1,5 +1,6 @@
 import Main.Date;
 import Main.Pet;
+import Main.*;
 
 public class PetshopTest {
     public static void main(String[] args) {
@@ -13,7 +14,7 @@ public class PetshopTest {
         customerList.addCustomer(customer);
 
         // Add pets
-        Pet pet = new Cat("Buddy", "Male", 2, "Brown", "Friendly dog", 500.0, "photo.jpg", "breed", "breeder");
+        Pet pet = new Cat("Fluffy", "Female", 2.5, "White", "A fluffy white cat", null, true, "John Doe", "Siamese", "Fish");
         petList.addPet(pet);
         petsForSaleList.addPetForSale(pet); // Add to pets for sale list
 
@@ -22,7 +23,7 @@ public class PetshopTest {
 
         // Sell a pet
         Date saleDate = new Date(13, 12, 2024);
-        petsForSaleList.sellPet(pet, saleDate, salesList);
+        petsForSaleList.sellPet(pet, saleDate, 100.0, salesList, customer);
 
         // Display sales and remaining pets for sale
         System.out.println("Sales: " + salesList);
