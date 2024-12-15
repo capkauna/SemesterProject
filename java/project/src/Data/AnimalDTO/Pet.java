@@ -1,6 +1,6 @@
-package Data;
+package Data.AnimalDTO;
 
-import javafx.scene.image.Image;
+import Data.Sale;
 
 import java.io.Serializable;
 import java.util.ArrayList;

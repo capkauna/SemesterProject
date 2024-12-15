@@ -1,5 +1,8 @@
 package Data;
 
+import Data.AnimalDTO.Date;
+import Data.AnimalDTO.Pet;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -59,8 +62,8 @@ public class SalesList {
     }
 
     // Get all sales
-    public List<SaleRecord> getAllSales() {
-        return new ArrayList<>(sales); // Return a copy to avoid accidental modification
+    public ArrayList<SaleRecord> getAllSales() {
+        return new ArrayList<SaleRecord>(sales); // Return a copy to avoid accidental modification
     }
 
     // Find sales by buyer name

@@ -3,12 +3,13 @@ package Data;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookingList {
+public class BookingListContainer
+{
   private int occupiedCages;
   private final int capacity;
   private final List<Booking> allbookings;
 
-  public BookingList(int capacity) {
+  public BookingListContainer(int capacity) {
     this.capacity = capacity;
     this.occupiedCages = 0;
     this.allbookings = new ArrayList<>();
@@ -51,8 +52,8 @@ public class BookingList {
   }
 
   // Get all bookings
-  public Booking[] getAllBookings() {
-    return allbookings.toArray(new Booking[0]);
+  public ArrayList<Booking> getAllBookings() {
+    return new ArrayList<>(allbookings);
   }
 
   // Equals method
@@ -62,7 +63,7 @@ public class BookingList {
       return true;
     if (obj == null || getClass() != obj.getClass())
       return false;
-    BookingList that = (BookingList) obj;
+    BookingListContainer that = (BookingListContainer) obj;
     return capacity == that.capacity && allbookings.equals(that.allbookings);
   }
 

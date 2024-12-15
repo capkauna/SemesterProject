@@ -1,4 +1,4 @@
-package Data;
+package Data.AnimalDTO;
 
 public enum Species {
   CAT("Cat"),

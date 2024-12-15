@@ -1,4 +1,9 @@
-package Data;
+package Tests;
+
+import Data.*;
+import Data.AnimalDTO.Cat;
+import Data.AnimalDTO.Date;
+import Data.AnimalDTO.Pet;
 
 public class PetshopTest {
     public static void main(String[] args) {

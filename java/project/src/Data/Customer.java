@@ -1,5 +1,7 @@
 package Data;
 
+import Data.AnimalDTO.Pet;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

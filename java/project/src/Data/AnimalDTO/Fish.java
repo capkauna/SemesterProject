@@ -1,6 +1,4 @@
-package Data;
-
-import javafx.scene.image.Image;
+package Data.AnimalDTO;
 
 import java.util.Objects;
 

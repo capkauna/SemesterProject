@@ -1,5 +1,7 @@
 package Data;
 
+import Data.AnimalDTO.Pet;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -33,6 +35,16 @@ public class PetListContainer
 
     public ArrayList<Pet> getAllPets() {
         return new ArrayList<>(petList); //returning a copy to avoid accidental modification
+    }
+
+    public ArrayList<Pet> getPetsForSale() {
+        ArrayList<Pet> petsForSale = new ArrayList<>();
+        for (Pet pet : petList) {
+            if (pet.isForSale()) {
+                petsForSale.add(pet);
+            }
+        }
+        return petsForSale;
     }
     public List<Pet> findPetsByName(String name) {
         List<Pet> result = new ArrayList<>();

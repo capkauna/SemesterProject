@@ -1,5 +1,7 @@
 package Data;
 
+import Data.AnimalDTO.Pet;
+
 import java.util.ArrayList;
 
 public class ViaPets {

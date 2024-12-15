@@ -1,4 +1,10 @@
-package Data;
+package Tests;
+
+import Data.*;
+import Data.AnimalDTO.Cat;
+import Data.AnimalDTO.Date;
+import Data.AnimalDTO.Dog;
+import Data.AnimalDTO.Pet;
 
 public class BookingListTest {
     public static void main(String[] args) {
@@ -18,7 +24,7 @@ public class BookingListTest {
         Booking booking2 = new Booking(startDate2, endDate2, pet2, customer2, 40.0);
 
         // Create Main.BookingList
-        BookingList bookingList = new BookingList(2);
+        BookingListContainer bookingList = new BookingListContainer(2);
 
         // Test: Add bookings
         System.out.println("Adding booking 1:");
@@ -57,7 +63,7 @@ public class BookingListTest {
         System.out.println(bookingList);
 
         // Test: Equals method
-        BookingList bookingList2 = new BookingList(2);
+        BookingListContainer bookingList2 = new BookingListContainer(2);
         bookingList2.addBooking(booking1);
         bookingList2.addBooking(booking2);
         System.out.println("\nMain.BookingList equals test:");

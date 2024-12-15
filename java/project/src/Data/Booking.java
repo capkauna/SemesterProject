@@ -1,5 +1,8 @@
 package Data;
 
+import Data.AnimalDTO.Date;
+import Data.AnimalDTO.Pet;
+
 public class Booking {
   private DateInterval dateInterval;
   private Pet pet;

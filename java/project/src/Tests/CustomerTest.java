@@ -1,4 +1,6 @@
-package Data;
+package Tests;
+
+import Data.Customer;
 
 public class CustomerTest
 {

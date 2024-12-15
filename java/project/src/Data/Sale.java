@@ -1,4 +1,6 @@
 package Data;
+import Data.AnimalDTO.Date;
+
 import java.io.Serializable;
 import java.util.Objects;
 

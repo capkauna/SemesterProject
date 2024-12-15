@@ -207,7 +207,9 @@ public class MainView extends Application {
         button4.setOnAction(e -> {primaryStage.setScene(customersScene);primaryStage.setTitle("Customers Management");});
 
         //Petshop
-        petshopButton1.setOnAction(e -> {primaryStage.setScene(petshop1Scene);});
+        petshopButton1.setOnAction(e -> {primaryStage.setScene(petshop1Scene);
+            sellAPetView.refresh();
+        });
         petshopButton2.setOnAction(e -> {primaryStage.setScene(petshop2Scene);});
 
         //Pets

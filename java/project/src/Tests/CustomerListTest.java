@@ -1,4 +1,7 @@
-package Data;
+package Tests;
+
+import Data.Customer;
+import Data.CustomerListContainer;
 
 public class CustomerListTest {
 

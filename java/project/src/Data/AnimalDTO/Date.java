@@ -1,4 +1,4 @@
-package Data;
+package Data.AnimalDTO;
 
 import java.io.Serializable;
 import java.util.Objects;

@@ -1,5 +1,8 @@
 package Data;
 
+import Data.AnimalDTO.Date;
+import Data.AnimalDTO.Pet;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;

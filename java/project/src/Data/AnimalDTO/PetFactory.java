@@ -1,4 +1,4 @@
-package Data;
+package Data.AnimalDTO;
 
 //TODO stil missing data
 public class PetFactory

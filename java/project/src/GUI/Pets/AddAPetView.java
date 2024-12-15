@@ -1,6 +1,9 @@
 package GUI.Pets;
 
 import Data.*;
+import Data.AnimalDTO.Pet;
+import Data.AnimalDTO.PetFactory;
+import Data.AnimalDTO.Species;
 import GUI.FileHelper;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
@@ -181,15 +184,20 @@ public class AddAPetView
         }
         else
         {
+          //TODO use strong types enums not check with strings
+          boolean forSale = selectedState.equals("Marked for sell");
+
           //TODO how to handle many instances
           Pet newPet = PetFactory.createPet(Species.valueOf(selectedPet.toUpperCase()),
               nameField.getText(), selectedGender, age, colorField.getText(),
-              commentsField.getText(), selectedState, false, "john");
+              commentsField.getText(), selectedState, forSale, "john");
 
+          newPet.setForSale(forSale, 100.0);
           PetListContainer listContainer = new PetListContainer(
               FileHelper.loadFromFile(fileName));
 
           listContainer.addPet(newPet);
+          System.out.println(listContainer.getAllPets());
           FileHelper.saveToFile(fileName, listContainer.getAllPets());
 
           resetForm();

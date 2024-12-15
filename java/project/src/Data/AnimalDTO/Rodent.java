@@ -1,8 +1,9 @@
-package Data;
+package Data.AnimalDTO;
 
 import java.util.Objects;
 
-public class Rodent extends Pet {
+public class Rodent extends Pet
+{
     private String species;
     private boolean bites; // can be a String for additional context (e.g., "Yes, occasionally") That can be added to comments section
 

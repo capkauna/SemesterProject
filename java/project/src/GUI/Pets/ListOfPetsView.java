@@ -1,6 +1,6 @@
 package GUI.Pets;
 
-import Data.Pet;
+import Data.AnimalDTO.Pet;
 import Data.PetListContainer;
 import GUI.FileHelper;
 import javafx.geometry.Insets;

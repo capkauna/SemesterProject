@@ -1,4 +1,4 @@
-package Data;
+package Data.AnimalDTO;
 
 public enum Gender {
   MALE("Male"),

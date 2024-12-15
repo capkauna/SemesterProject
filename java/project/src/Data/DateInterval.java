@@ -1,5 +1,7 @@
 package Data;
 
+import Data.AnimalDTO.Date;
+
 import java.util.Objects;
 
 public class DateInterval
