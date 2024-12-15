@@ -210,7 +210,7 @@ public class SellAPetView {
             sale.addSale(petToSave, customerToSave, saleDateToSave, Double.parseDouble(priceText), Double.parseDouble(priceText));
             FileHelper.saveToFile(saleFileName, sale.getAllSales());
 
-            //TODO remove pet from list of pets also
+            //TODO remove pet from list of pets when a sale is succesfull
             //TODO make sure file works with serializable
             System.out.println("Sale recorded: " + sale.getAllSales().get(sale.getAllSales().size() - 1));
         } catch (IOException e) {
