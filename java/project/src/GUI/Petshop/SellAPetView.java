@@ -211,6 +211,7 @@ public class SellAPetView {
             FileHelper.saveToFile(saleFileName, sale.getAllSales());
 
             //TODO remove pet from list of pets also
+            //TODO make sure file works with serializable
             System.out.println("Sale recorded: " + sale.getAllSales().get(sale.getAllSales().size() - 1));
         } catch (IOException e) {
             //TODO show label

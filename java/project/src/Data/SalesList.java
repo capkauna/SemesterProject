@@ -3,6 +3,7 @@ package Data;
 import Data.AnimalDTO.Date;
 import Data.AnimalDTO.Pet;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -10,7 +11,8 @@ import java.util.Objects;
 public class SalesList {
 
     // Inner class to encapsulate a sale with pet and buyer details, for storage purposes
-    public static class SaleRecord {
+    public static class SaleRecord implements Serializable
+    {
         private Pet pet;
         private Customer buyer;
         private Sale sale;
