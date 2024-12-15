@@ -1,19 +1,37 @@
 public abstract class Pet {
     private String name;
-    private String gender;
+    private char gender;
     private int age;
     private String color;
     private String comments;
     private double price;
     private String photo;
 
-    public Pet(String name, String gender, int age, String color, String comments, double price, String photo) {
+    public Pet(String name, char gender, int age, String color, String comments, double price, String photo) {
         this.name = name;
         this.gender = gender;
         this.age = age;
         this.color = color;
         this.comments = comments;
         this.price = price;
+        this.photo = photo;
+    }
+
+    public Pet(char gender, int age, String color, String comments, double price, String photo) {
+        this.gender = gender;
+        this.age = age;
+        this.color = color;
+        this.comments = comments;
+        this.price = price;
+        this.photo = photo;
+    }
+
+    public Pet(String name, char gender, int age, String color, String comments, String photo) {
+        this.name = name;
+        this.gender = gender;
+        this.age = age;
+        this.color = color;
+        this.comments = comments;
         this.photo = photo;
     }
 
@@ -25,11 +43,11 @@ public abstract class Pet {
         this.name = name;
     }
 
-    public String getGender() {
+    public char getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(char gender) {
         this.gender = gender;
     }
 
@@ -73,8 +91,35 @@ public abstract class Pet {
         this.photo = photo;
     }
 
+    public boolean isInPetshop() {
+        return price > 0;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        Pet pet = (Pet) obj;
+        return gender == pet.gender &&
+                age == pet.age &&
+                Double.compare(pet.price, price) == 0 &&
+                name.equals(pet.name) &&
+                color.equals(pet.color) &&
+                comments.equals(pet.comments) &&
+                photo.equals(pet.photo);
+    }
+
     @Override
     public String toString() {
-        return "Pet{name='" + name + '\'' + ", gender='" + gender + '\'' + ", age=" + age + ", color='" + color + '\'' + ", comments='" + comments + '\'' + ", price=" + price + ", photo='" + photo + '\'' + '}';
+        return "Pet{" +
+                "name='" + name + '\'' +
+                ", gender=" + gender +
+                ", age=" + age +
+                ", color='" + color + '\'' +
+                ", comments='" + comments + '\'' +
+                ", price=" + price +
+                ", photo='" + photo + '\'' +
+                '}';
     }
 }
