@@ -1,3 +1,5 @@
+package GUI;
+
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -217,7 +219,7 @@ public class GUI extends Application {
         petsBackButton.setOnAction(e -> {primaryStage.setScene(mainScene);primaryStage.setTitle("");});
         customersBackButton.setOnAction(e -> {primaryStage.setScene(mainScene);primaryStage.setTitle("");});
 
-        primaryStage.getIcons().add(new Image("pets.png"));
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("pets.png")));
         primaryStage.setScene(mainScene);
         primaryStage.show();
     }
