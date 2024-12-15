@@ -49,7 +49,7 @@ public abstract class Pet implements Serializable
     private void validateAssignment(String ownerName, boolean forSale)
     {
         if (ownerName == null && !forSale) {
-            throw new IllegalArgumentException("A pet must either have an owner or be marked for sale.");
+//            throw new IllegalArgumentException("A pet must either have an owner or be marked for sale.");
         }
     }
 

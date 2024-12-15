@@ -1,4 +1,4 @@
-package GUI;
+package GUI.Kennel;
 
 import javafx.scene.control.*;
 import javafx.scene.layout.*;

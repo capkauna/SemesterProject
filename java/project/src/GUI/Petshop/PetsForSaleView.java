@@ -1,4 +1,4 @@
-package GUI;
+package GUI.Petshop;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.*;

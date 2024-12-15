@@ -1,5 +1,13 @@
 package GUI;
 
+import GUI.Customers.AddACustomerView;
+import GUI.Customers.ListOfCustomersView;
+import GUI.Kennel.AddBookingView;
+import GUI.Kennel.ViewBookingView;
+import GUI.Pets.AddAPetView;
+import GUI.Pets.ListOfPetsView;
+import GUI.Petshop.PetsForSaleView;
+import GUI.Petshop.SellAPetView;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -10,7 +18,7 @@ import javafx.stage.Stage;
 import javafx.scene.paint.Color;
 import javafx.geometry.Insets;
 
-public class GUIController extends Application {
+public class MainView extends Application {
     public void start(Stage primaryStage) {
         Pane mainPane = new Pane();
         mainPane.setBackground(new Background(new BackgroundFill(Color.LIGHTBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
