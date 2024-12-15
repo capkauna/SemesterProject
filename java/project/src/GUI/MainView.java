@@ -50,7 +50,7 @@ public class MainView extends Application {
         button4.setLayoutY(220);
 
         mainPane.getChildren().addAll(button1, button2, button3, button4);
-        Scene mainScene = new Scene(mainPane, 420, 420);
+        Scene mainScene = new Scene(mainPane, 720, 720);
 
         //Kennel
         Pane kennelPane = new Pane();
@@ -72,14 +72,14 @@ public class MainView extends Application {
 
         kennelBackButton.setStyle("-fx-font-size: 20px; -fx-background-color: white");
         kennelBackButton.setAlignment(Pos.TOP_CENTER);
-        kennelBackButton.setPrefWidth(420);
+        kennelBackButton.setPrefWidth(720);
         kennelPane.getChildren().addAll(kennelButton1, kennelButton2, kennelBackButton);
-        Scene kennelScene = new Scene(kennelPane, 420, 420);
+        Scene kennelScene = new Scene(kennelPane, 720, 720);
 
         Pane kennel1Pane = new Pane();
-        Scene kennel1Scene = new Scene(kennel1Pane, 420, 420);
+        Scene kennel1Scene = new Scene(kennel1Pane, 720, 720);
         Pane kennel2Pane = new Pane();
-        Scene kennel2Scene = new Scene(kennel2Pane, 420, 420);
+        Scene kennel2Scene = new Scene(kennel2Pane, 720, 720);
 
         //Add Main.Booking (Kennel)
         AddBookingView addBookingView = new AddBookingView(kennel1Pane);
@@ -109,14 +109,14 @@ public class MainView extends Application {
 
         petshopBackButton.setStyle("-fx-font-size: 20px; -fx-background-color: white");
         petshopBackButton.setAlignment(Pos.TOP_CENTER);
-        petshopBackButton.setPrefWidth(420);
+        petshopBackButton.setPrefWidth(720);
         petshopPane.getChildren().addAll(petshopButton1, petshopButton2, petshopBackButton);
-        Scene petshopScene = new Scene(petshopPane, 420, 420);
+        Scene petshopScene = new Scene(petshopPane, 720, 720);
 
         Pane petshop1Pane = new Pane();
-        Scene petshop1Scene = new Scene(petshop1Pane, 420, 420);
+        Scene petshop1Scene = new Scene(petshop1Pane, 720, 720);
         Pane petshop2Pane = new Pane();
-        Scene petshop2Scene = new Scene(petshop2Pane, 420, 420);
+        Scene petshop2Scene = new Scene(petshop2Pane, 720, 720);
 
         //Sell a pet
         SellAPetView sellAPetView = new SellAPetView(petshop1Pane);
@@ -146,14 +146,14 @@ public class MainView extends Application {
 
         petsBackButton.setStyle("-fx-font-size: 20px; -fx-background-color: white");
         petsBackButton.setAlignment(Pos.TOP_CENTER);
-        petsBackButton.setPrefWidth(420);
+        petsBackButton.setPrefWidth(720);
         petsPane.getChildren().addAll(petsButton1, petsButton2, petsBackButton);
-        Scene petsScene = new Scene(petsPane, 420, 420);
+        Scene petsScene = new Scene(petsPane, 720, 720);
 
         Pane pets1Pane = new Pane();
-        Scene pets1Scene = new Scene(pets1Pane, 420, 420);
+        Scene pets1Scene = new Scene(pets1Pane, 720, 720);
         Pane pets2Pane = new Pane();
-        Scene pets2Scene = new Scene(pets2Pane, 420, 420);
+        Scene pets2Scene = new Scene(pets2Pane, 720, 720);
 
         //Add a pet
         AddAPetView addAPetView = new AddAPetView(pets1Pane);
@@ -183,15 +183,15 @@ public class MainView extends Application {
 
         customersBackButton.setStyle("-fx-font-size: 20px; -fx-background-color: white");
         customersBackButton.setAlignment(Pos.TOP_CENTER);
-        customersBackButton.setPrefWidth(420);
+        customersBackButton.setPrefWidth(720);
 
         customersPane.getChildren().addAll(customersButton1, customersButton2, customersBackButton);
-        Scene customersScene = new Scene(customersPane, 420, 420);
+        Scene customersScene = new Scene(customersPane, 720, 720);
 
         Pane customers1Pane = new Pane();
-        Scene customers1Scene = new Scene(customers1Pane, 420, 420);
+        Scene customers1Scene = new Scene(customers1Pane, 720, 720);
         Pane customers2Pane = new Pane();
-        Scene customers2Scene = new Scene(customers2Pane, 420, 420);
+        Scene customers2Scene = new Scene(customers2Pane, 720, 720);
 
         //Add a customer
         AddACustomerView addACustomer = new AddACustomerView(customers1Pane);

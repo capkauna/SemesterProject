@@ -17,6 +17,7 @@ public class AddAPetView {
     private TextField nameField;
     private ComboBox<String> petComboBox;
     private ComboBox<String> genderComboBox;
+    private ComboBox<String> stateComboBox;
     private TextField ageField;
     private TextField colorField;
     private TextField commentsField;
@@ -31,17 +32,18 @@ public class AddAPetView {
         nameField = createTextField(addAPetPane, "Name:", 20, 60);
         petComboBox = createComboBox(addAPetPane, "Species:", 20, 100, "cat", "dog", "fish", "bird", "rodents", "various");
         genderComboBox = createComboBox(addAPetPane, "Gender:", 20, 140, "male", "female", "undefined");
-        ageField = createTextField(addAPetPane, "Age:", 20, 180);
-        colorField = createTextField(addAPetPane, "Color:", 20, 220);
-        commentsField = createTextField(addAPetPane, "Comment:", 20, 260);
-        errorLabel = createLabel(addAPetPane, "", 150, 310, "-fx-font-size: 14px; -fx-text-fill: red;");
-        successLabel = createLabel(addAPetPane, "", 120, 310, "-fx-font-size: 14px; -fx-text-fill: green;");
+        stateComboBox = createComboBox(addAPetPane, "State:", 20, 180, "Marked for sell", "Owned");
+        ageField = createTextField(addAPetPane, "Age:", 20, 220);
+        colorField = createTextField(addAPetPane, "Color:", 20, 260);
+        commentsField = createTextField(addAPetPane, "Comment:", 20, 300);
+        errorLabel = createLabel(addAPetPane, "", 150, 340, "-fx-font-size: 14px; -fx-text-fill: red;");
+        successLabel = createLabel(addAPetPane, "", 120, 340, "-fx-font-size: 14px; -fx-text-fill: green;");
 
         // Buttons
-        Button submitButton = createButton(addAPetPane, "Submit", 210, 350, "-fx-font-size: 16px; -fx-background-color: green; -fx-text-fill: white;");
-        Button resetButton = createButton(addAPetPane, "Reset", 140, 350, "-fx-font-size: 16px; -fx-background-color: red; -fx-text-fill: white;");
+        Button submitButton = createButton(addAPetPane, "Submit", 210, 390, "-fx-font-size: 16px; -fx-background-color: green; -fx-text-fill: white;");
+        Button resetButton = createButton(addAPetPane, "Reset", 140, 390, "-fx-font-size: 16px; -fx-background-color: red; -fx-text-fill: white;");
         backButton = createButton(addAPetPane, "Return", 0, 0, "-fx-font-size: 20px; -fx-background-color: white;");
-        backButton.setPrefWidth(420);
+        backButton.setPrefWidth(720);
 
         // Button Actions
         resetButton.setOnAction(e -> resetForm());
@@ -102,6 +104,7 @@ public class AddAPetView {
         successLabel.setText("");
         nameField.setText("");
         petComboBox.setValue(null);
+        stateComboBox.setValue(null);
         genderComboBox.setValue(null);
         ageField.setText("");
         colorField.setText("");
@@ -115,6 +118,7 @@ public class AddAPetView {
 
         String selectedPet = petComboBox.getValue();
         String selectedGender = genderComboBox.getValue();
+        String selectedState = stateComboBox.getValue();
 
         if (selectedPet == null) {
             errorLabel.setText("Please select species.");
@@ -126,7 +130,10 @@ public class AddAPetView {
             errorLabel.setText("Enter an age.");
         } else if (colorField.getText() == null || colorField.getText().trim().isEmpty()) {
             errorLabel.setText("Enter a color.");
-        } else {
+        } else if (selectedState == null) {
+            errorLabel.setText("Please select a state.");
+        }
+        else {
             try {
                 double age = Double.parseDouble(ageField.getText().trim());
                 if (age <= 0) {
@@ -134,6 +141,9 @@ public class AddAPetView {
                 } else if (age > 100) {
                     errorLabel.setText("Age can't be higher than 100.");
                 } else {
+
+
+
                     Pet newPet = new Cat(nameField.getText(), selectedGender, age, colorField.getText(),
                         commentsField.getText(), null, false, null, selectedPet, null);
                     PetListContainer listContainer = new PetListContainer(
