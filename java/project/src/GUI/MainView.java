@@ -56,7 +56,7 @@ public class MainView extends Application {
         Pane kennelPane = new Pane();
         kennelPane.setBackground(new Background(new BackgroundFill(Color.LIGHTBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
         Button kennelButton1 = new Button("Add Booking");
-        Button kennelButton2 = new Button("View Bookings");
+        Button kennelButton2 = new Button("List of Bookings");
         Button kennelBackButton = new Button("Back to Main Page");
 
         kennelButton1.setStyle("-fx-font-size: 20px; -fx-background-color: white");
@@ -81,7 +81,7 @@ public class MainView extends Application {
         Pane kennel2Pane = new Pane();
         Scene kennel2Scene = new Scene(kennel2Pane, 720, 720);
 
-        //Add Main.Booking (Kennel)
+        //Add Booking (Kennel)
         AddBookingView addBookingView = new AddBookingView(kennel1Pane);
         addBookingView.getBackButton().setOnAction(e -> {primaryStage.setScene(kennelScene);});
 
@@ -93,7 +93,7 @@ public class MainView extends Application {
         Pane petshopPane = new Pane();
         petshopPane.setBackground(new Background(new BackgroundFill(Color.LIGHTBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
         Button petshopButton1 = new Button("Sell a pet");
-        Button petshopButton2 = new Button("Pets for sale");
+        Button petshopButton2 = new Button("List of Pets for sale");
         Button petshopBackButton = new Button("Back to Main Page");
 
         petshopButton1.setStyle("-fx-font-size: 20px; -fx-background-color: white");
