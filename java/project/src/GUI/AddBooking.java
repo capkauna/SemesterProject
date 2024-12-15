@@ -141,6 +141,9 @@ public class AddBooking {
                             resultLabel.setText("Price must be a positive number.");
                         } else if (price > 100) {
                             resultLabel.setText("Price can't be higher than 100.");
+                        } else {
+                            resultLabel.setText("");
+                            resultLabel2.setText("Booking successfully created");
                         }
                     } catch (NumberFormatException ex) {
                         resultLabel.setText("Price must be a number.");

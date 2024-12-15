@@ -127,6 +127,9 @@ public class AddACustomer {
                             resultLabel.setText("Phone number must be a positive number.");
                         } else if (nr > 999999999) {
                             resultLabel.setText("Phone number can't be that long :)");
+                        } else {
+                            resultLabel.setText("");
+                            resultLabel2.setText("Customer successfully added");
                         }
                     } catch (NumberFormatException ex) {
                         resultLabel.setText("Phone number can't contain letters.");

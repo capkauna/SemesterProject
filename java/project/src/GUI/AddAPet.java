@@ -157,6 +157,9 @@ public class AddAPet {
                         resultLabel.setText("Age must be a positive number.");
                     } else if (age > 100) {
                         resultLabel.setText("Age can't be higher than 100.");
+                    } else {
+                        resultLabel.setText("");
+                        resultLabel2.setText("Pet successfully added");
                     }
                 } catch (NumberFormatException ex) {
                     resultLabel.setText("Age must be a number.");
