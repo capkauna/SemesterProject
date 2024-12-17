@@ -1,7 +1,7 @@
 package GUI.Customers;
 
 import Data.Customer;
-import GUI.FileHelper;
+import Helpers.FileHelper;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;

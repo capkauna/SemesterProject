@@ -219,7 +219,9 @@ public class MainView extends Application {
         });
 
         //Pets
-        petsButton1.setOnAction(e -> {primaryStage.setScene(pets1Scene);});
+        petsButton1.setOnAction(e -> {primaryStage.setScene(pets1Scene);
+            addAPetView.refresh();
+        });
         petsButton2.setOnAction(e -> {primaryStage.setScene(pets2Scene);
             listOfPetsView.refresh();
         });

@@ -5,13 +5,15 @@ import Data.Gender;
 import Data.AnimalDTO.Pet;
 import Data.AnimalDTO.PetFactory;
 import Data.Species;
-import GUI.FileHelper;
+import Helpers.FileHelper;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AddAPetView
 {
@@ -23,9 +25,10 @@ public class AddAPetView
   private Label nameLabel;
   private TextField priceField;
   private Label priceLabel;
-  private ComboBox<String> petComboBox;
+  private ComboBox<String> speciesComboBox;
   private ComboBox<String> genderComboBox;
   private ComboBox<String> stateComboBox;
+  private ComboBox<String> customerComboBox;
   private TextField ageField;
   private TextField colorField;
   private TextField commentsField;
@@ -34,8 +37,13 @@ public class AddAPetView
   private Label commentsLabel;
   private Label errorLabel;
   private Label successLabel;
-
+  private Label customerLabel;
+  private Label speciesLabel;
+  private Label genderLabel;
+  private Label stateLabel;
   private final String textFont = "-fx-font-size: 16px;";
+  private ArrayList<Customer> customers;
+  private String customerFileName = "customers.dat";
 
   public AddAPetView(Pane addAPetPane)
   {
@@ -50,13 +58,21 @@ public class AddAPetView
     nameLabel = createLabel(addAPetPane, "Name:", 20, 60,
         textFont);
 
-    petComboBox = createComboBox(addAPetPane, "Species:", 20, 100,
+    speciesComboBox = createComboBox(addAPetPane, 20, 100,
         Species.getSpeciesDisplayNamesList());
-    genderComboBox = createComboBox(addAPetPane, "Gender:", 20, 140,
-        Gender.getGenderDisplayNamesList());
-    stateComboBox = createComboBox(addAPetPane, "State:", 20, 180,
-        PetState.getPetStateDisplayName());
+    speciesLabel = createLabel(addAPetPane, "Species:", 20, 100,
+        textFont);
 
+
+    genderComboBox = createComboBox(addAPetPane, 20, 140,
+        Gender.getGenderDisplayNamesList());
+    genderLabel = createLabel(addAPetPane, "Gender:", 20, 140,
+        textFont);
+
+
+    stateComboBox = createComboBox(addAPetPane, 20, 180,
+        PetState.getPetStateDisplayName());
+    stateLabel = createLabel(addAPetPane, "State:", 20, 180, textFont);
 
 
 
@@ -97,10 +113,25 @@ public class AddAPetView
     priceField.setVisible(false);
     priceLabel.setVisible(false);
 
+    customerLabel = createLabel(addAPetPane, "Customer:", 20, 340,
+        textFont);
+    customerComboBox = createComboBox(addAPetPane, 20, 340);
+    customerComboBox.setVisible(false);
+    customerLabel.setVisible(false);
+
     // Button Actions
     resetButton.setOnAction(e -> resetForm());
     submitButton.setOnAction(e -> handleSubmit());
     setupFormListeners();
+  }
+
+  private List<String> getCustomers()
+  {
+    //TODO use file
+    List<String> customers = new ArrayList<>();
+    customers.add("John");
+    customers.add("Jane");
+    return customers;
   }
 
   private void setupFormListeners()
@@ -110,9 +141,13 @@ public class AddAPetView
       if (PetState.FORSALE.toString().equals(newVal)) {
         priceField.setVisible(true);
         priceLabel.setVisible(true);// Show the price field when "For Sale" is selected
+        customerComboBox.setVisible(false);
+        customerLabel.setVisible(false);
       } else {
         priceField.setVisible(false); // Hide the price field otherwise
         priceLabel.setVisible(false);
+        customerLabel.setVisible(true);
+        customerComboBox.setVisible(true);
       }
     });
   }
@@ -145,10 +180,9 @@ public class AddAPetView
   }
 
   // Method to create a combo box
-  private ComboBox<String> createComboBox(Pane pane, String labelText, int x,
+  private ComboBox<String> createComboBox(Pane pane, int x,
       int y, String... items)
   {
-    createLabel(pane, labelText, x, y, "-fx-font-size: 16px;");
     ComboBox<String> comboBox = new ComboBox<>();
     comboBox.setEditable(true);
     comboBox.setLayoutX(100);
@@ -178,13 +212,30 @@ public class AddAPetView
     errorLabel.setText("");
     successLabel.setText("");
     nameField.setText("");
-    petComboBox.setValue(null);
+    speciesComboBox.setValue(null);
     stateComboBox.setValue(null);
     genderComboBox.setValue(null);
     ageField.setText("");
     colorField.setText("");
     commentsField.setText("");
     priceField.setText("");
+    priceLabel.setVisible(false);
+    priceField.setVisible(false);
+    customerComboBox.setVisible(false);
+    customerLabel.setVisible(false);
+  }
+
+  private void loadCustomersAndPopulateComboBox() {
+    try {
+      CustomerListContainer listContainer = new CustomerListContainer(FileHelper.loadFromFile(customerFileName));
+      customers = listContainer.getAllCustomers();
+      customerComboBox.getItems().clear();
+      for (Customer customer : listContainer.getAllCustomers()) {
+        customerComboBox.getItems().add(customer.getName());
+      }
+    } catch (IOException | ClassNotFoundException e) {
+      System.out.println("No existing customer data found.");
+    }
   }
 
   // Submit button action
@@ -193,7 +244,7 @@ public class AddAPetView
     errorLabel.setText("");
     successLabel.setText("");
 
-    String selectedSpecies = petComboBox.getValue();
+    String selectedSpecies = speciesComboBox.getValue();
     String selectedGender = genderComboBox.getValue();
     String selectedState = stateComboBox.getValue();
 
@@ -245,13 +296,8 @@ public class AddAPetView
         }
         else
         {
-          boolean forSale;
-          //TODO use strong types enums not check with strings
-          forSale = selectedState.equals(PetState.FORSALE.toString());
-
+          boolean forSale = selectedState.equals(PetState.FORSALE.toString());
           Gender gender = Gender.valueOf(selectedGender.toUpperCase());
-
-          //TODO how to handle many instances
           Pet pet = PetFactory.createPet(
               Species.valueOf(selectedSpecies.toUpperCase()),
               nameField.getText(), gender, age, colorField.getText(),
@@ -284,5 +330,6 @@ public class AddAPetView
   public void refresh()
   {
     resetForm();
+    loadCustomersAndPopulateComboBox();
   }
 }

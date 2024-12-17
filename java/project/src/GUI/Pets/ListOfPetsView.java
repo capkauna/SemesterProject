@@ -2,7 +2,7 @@ package GUI.Pets;
 
 import Data.AnimalDTO.Pet;
 import Data.PetListContainer;
-import GUI.FileHelper;
+import Helpers.FileHelper;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;

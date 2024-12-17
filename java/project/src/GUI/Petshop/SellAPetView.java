@@ -3,7 +3,7 @@ package GUI.Petshop;
 import Data.*;
 import Data.AnimalDTO.Date;
 import Data.AnimalDTO.Pet;
-import GUI.FileHelper;
+import Helpers.FileHelper;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;

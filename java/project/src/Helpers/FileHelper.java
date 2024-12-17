@@ -1,4 +1,4 @@
-package GUI;
+package Helpers;
 
 import java.io.*;
 import java.util.ArrayList;
