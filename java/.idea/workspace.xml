@@ -18,6 +18,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="test" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -43,9 +48,15 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.BookingListTest.executor": "Run",
     "Application.CustomerListTest.executor": "Run",
     "Application.CustomerTest.executor": "Run",
+    "Application.GUIController.executor": "Run",
+    "Application.MainView.executor": "Run",
     "Application.PetshopTest.executor": "Run",
+    "Application.TestClass.executor": "Run",
+    "Application.Tests.CustomerListTest.executor": "Run",
+    "Application.Tests.PetshopTest.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.CustomerListTest.testAddCustomer.executor": "Run",
     "Repository.Attach.Annotations": "false",
@@ -64,44 +75,79 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.CustomerListTest">
-    <configuration name="CustomerListTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CustomerListTest" />
+  <component name="RunManager" selected="Application.TestClass">
+    <configuration name="BookingListTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Tests.BookingListTest" />
       <module name="project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="CustomerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CustomerTest" />
+      <option name="MAIN_CLASS_NAME" value="Tests.CustomerTest" />
       <module name="project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PetshopTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="PetshopTest" />
+    <configuration name="TestClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Data.TestClass" />
       <module name="project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Data.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CustomerListTest.testAddCustomer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Tests.CustomerListTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Tests.CustomerListTest" />
       <module name="project" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CustomerListTest" />
-      <option name="METHOD_NAME" value="testAddCustomer" />
-      <option name="TEST_OBJECT" value="method" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tests.PetshopTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Tests.PetshopTest" />
+      <module name="project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CustomerListTest" />
+        <item itemvalue="Application.TestClass" />
+        <item itemvalue="Application.BookingListTest" />
+        <item itemvalue="Application.Tests.CustomerListTest" />
         <item itemvalue="Application.CustomerTest" />
-        <item itemvalue="JUnit.CustomerListTest.testAddCustomer" />
-        <item itemvalue="Application.PetshopTest" />
+        <item itemvalue="Application.Tests.PetshopTest" />
       </list>
     </recent_temporary>
   </component>
