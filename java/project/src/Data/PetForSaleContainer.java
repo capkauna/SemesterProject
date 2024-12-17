@@ -7,9 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class PetsForSaleList {
+public class PetForSaleContainer
+{
     private List<Pet> petsForSale = new ArrayList<>();
 
+    public PetForSaleContainer(List<Pet> petsForSale)
+    {
+        this.petsForSale = petsForSale;
+    }
 
     public void addPetForSale(Pet pet) {
         if (pet.isForSale()) {
@@ -63,7 +68,7 @@ public class PetsForSaleList {
     {
         if (o == null || getClass() != o.getClass())
             return false;
-        PetsForSaleList that = (PetsForSaleList) o;
+        PetForSaleContainer that = (PetForSaleContainer) o;
         return Objects.equals(getPetsForSale(), that.getPetsForSale());
     }
 

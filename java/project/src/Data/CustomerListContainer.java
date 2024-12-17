@@ -20,6 +20,15 @@ public class CustomerListContainer
     return customers.get(index);
   }
 
+  public Customer getCustomer(String name) {
+    for (Customer customer : customers) {
+      if (customer.getName().equals(name)) {
+        return customer;
+      }
+    }
+    return null;
+  }
+
   public void addCustomer(Customer customer) {
     if (customer == null) {
       throw new IllegalArgumentException("Customer cannot be null");

@@ -10,6 +10,7 @@ import java.util.List;
 
 public class Customer implements Serializable
 {
+    private int id; // good idea for getting the customer even if same name
     private String name;
     private String phoneNo;
     private String address;

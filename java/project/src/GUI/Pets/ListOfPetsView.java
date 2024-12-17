@@ -70,7 +70,7 @@ public class ListOfPetsView {
 
         petListView.getItems().clear();
         for (Pet pet : listContainer.getAllPets()) {
-            petListView.getItems().add(pet.getName());
+            petListView.getItems().add(pet.toString());
         }
     }
 

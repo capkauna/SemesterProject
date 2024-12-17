@@ -239,93 +239,137 @@ public class AddAPetView
   }
 
   // Submit button action
-  private void handleSubmit()
-  {
-    errorLabel.setText("");
-    successLabel.setText("");
+  private void handleSubmit() {
+    resetLabels();
+    if (!isValidInput()) {
+      return;
+    }
 
-    String selectedSpecies = speciesComboBox.getValue();
-    String selectedGender = genderComboBox.getValue();
-    String selectedState = stateComboBox.getValue();
-
-    if (selectedSpecies == null)
-    {
-      errorLabel.setText("Please select species.");
-    }
-    else if (selectedGender == null)
-    {
-      errorLabel.setText("Please select a gender.");
-    }
-    else if (nameField.getText() == null || nameField.getText().trim()
-        .isEmpty())
-    {
-      errorLabel.setText("Please enter a name.");
-    }
-    else if (ageField.getText() == null || ageField.getText().trim().isEmpty())
-    {
-      errorLabel.setText("Enter an age.");
-    }
-    else if (colorField.getText() == null || colorField.getText().trim()
-        .isEmpty())
-    {
-      errorLabel.setText("Enter a color.");
-    }
-    else if (selectedState == null)
-    {
-      errorLabel.setText("Please select a state.");
-    } else if (selectedState.equals(PetState.FORSALE.toString()) && (priceField.getText() == null || priceField.getText().trim().isEmpty()))
-    {
-      errorLabel.setText("Please enter a price.");
-    }
-    else
-    {
-      try
-      {
-        double age = Double.parseDouble(ageField.getText().trim());
-        double price = Double.parseDouble(priceField.getText().trim());
-        if (age <= 0)
-        {
-          errorLabel.setText("Age must be a positive number.");
-        }
-        else if (age > 100)
-        {
-          errorLabel.setText("Age can't be higher than 100.");
-        } else if (price <= 0)
-        {
-          errorLabel.setText("Price must be a positive number.");
-        }
-        else
-        {
-          boolean forSale = selectedState.equals(PetState.FORSALE.toString());
-          Gender gender = Gender.valueOf(selectedGender.toUpperCase());
-          Pet pet = PetFactory.createPet(
-              Species.valueOf(selectedSpecies.toUpperCase()),
-              nameField.getText(), gender, age, colorField.getText(),
-              commentsField.getText(), "photo.url", forSale, "john");
-
-          pet.setForSale(forSale, price);
-          PetListContainer listContainer = new PetListContainer(
-              FileHelper.loadFromFile(fileName));
-
-          listContainer.addPet(pet);
-          System.out.println(listContainer.getAllPets());
-          FileHelper.saveToFile(fileName, listContainer.getAllPets());
-
-          resetForm();
-          errorLabel.setText("");
-          successLabel.setText("Pet successfully added");
-        }
-      }
-      catch (NumberFormatException ex)
-      {
-        errorLabel.setText("Age must be a number.");
-      }
-      catch (ClassNotFoundException | IOException ex)
-      {
-        errorLabel.setText("Error saving pet.");
-      }
+    try {
+      createAndStorePet();
+    } catch (NumberFormatException ex) {
+      errorLabel.setText("Please enter valid numbers for age and price.");
+    } catch (Exception ex) {
+      errorLabel.setText("Error processing the form: " + ex.getMessage());
     }
   }
+
+  private void resetLabels() {
+    errorLabel.setText("");
+    successLabel.setText("");
+  }
+
+  private boolean isValidInput() {
+    String selectedSpecies = speciesComboBox.getValue();
+    if (selectedSpecies == null) {
+      errorLabel.setText("Please select a species.");
+      return false;
+    }
+
+    String selectedGender = genderComboBox.getValue();
+    if (selectedGender == null) {
+      errorLabel.setText("Please select a gender.");
+      return false;
+    }
+
+    if (isFieldEmpty(nameField)) {
+      errorLabel.setText("Please enter a name.");
+      return false;
+    }
+
+    if (isFieldEmpty(ageField)) {
+      errorLabel.setText("Please enter an age.");
+      return false;
+    }
+
+    if (isFieldEmpty(colorField)) {
+      errorLabel.setText("Please enter a color.");
+      return false;
+    }
+
+    String selectedState = stateComboBox.getValue();
+    if (selectedState == null) {
+      errorLabel.setText("Please select a state.");
+      return false;
+    }
+
+    if (selectedState.equals(PetState.FORSALE.toString()) && isFieldEmpty(priceField)) {
+      errorLabel.setText("Please enter a price.");
+      return false;
+    }
+
+    if (selectedState.equals(PetState.OWNED.toString()) && (customerComboBox.getValue() == null)) {
+      errorLabel.setText("Please select a customer.");
+      return false;
+    }
+
+    return true;
+  }
+
+  private boolean isFieldEmpty(TextField field) {
+    return field.getText() == null || field.getText().trim().isEmpty();
+  }
+
+  private void createAndStorePet() throws NumberFormatException, ClassNotFoundException, IOException {
+    double age = Double.parseDouble(ageField.getText().trim());
+    double price;
+
+    if(stateComboBox.getValue().equals(PetState.FORSALE.toString()))
+    {
+      price = Double.parseDouble(priceField.getText().trim());
+    } else {
+      price = 0;
+    }
+
+    if (!isValidAgeAndPrice(age, price)) {
+      return;
+    }
+
+    String selectedState = stateComboBox.getValue();
+    boolean forSale = selectedState.equals(PetState.FORSALE.toString());
+    Gender gender = Gender.valueOf(genderComboBox.getValue().toUpperCase());
+
+    Pet pet = PetFactory.createPet(
+        Species.valueOf(speciesComboBox.getValue().toUpperCase()),
+        nameField.getText(), gender, age, colorField.getText(),
+        commentsField.getText(), "photo.url", forSale, "john");
+
+    pet.setForSale(forSale, price);
+    if(!forSale) {
+      pet.setOwnerName(customerComboBox.getValue());
+      CustomerListContainer customerListContainer = new CustomerListContainer(FileHelper.loadFromFile(customerFileName));
+      customerListContainer.getCustomer(customerComboBox.getValue()).addPet(pet);
+      FileHelper.saveToFile(customerFileName, customerListContainer.getAllCustomers());
+
+    }
+
+    PetListContainer petListContainer = new PetListContainer(FileHelper.loadFromFile(fileName));
+    petListContainer.addPet(pet);
+
+
+    FileHelper.saveToFile(fileName, petListContainer.getAllPets());
+
+    System.out.println(petListContainer.getAllPets());
+    resetForm();
+    successLabel.setText("Pet successfully added");
+  }
+
+  private boolean isValidAgeAndPrice(double age, double price) {
+    if (age <= 0) {
+      errorLabel.setText("Age must be a positive number.");
+      return false;
+    } else if (age > 100) {
+      errorLabel.setText("Age can't be higher than 100.");
+      return false;
+    } else if (price <= 0 && stateComboBox.getValue().equals(PetState.FORSALE.toString())) {
+      errorLabel.setText("Price must be a positive number.");
+      return false;
+    }
+    return true;
+  }
+
+
+
 
   public void refresh()
   {
