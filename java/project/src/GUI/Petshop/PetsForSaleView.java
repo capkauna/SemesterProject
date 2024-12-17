@@ -57,7 +57,7 @@ public class PetsForSaleView {
 
         petForSaleListView.getItems().clear();
         for (Pet pet : listContainer.getPetsForSale()) {
-            petForSaleListView.getItems().add(pet.getName());
+            petForSaleListView.getItems().add(pet.toString());
         }
     }
 }

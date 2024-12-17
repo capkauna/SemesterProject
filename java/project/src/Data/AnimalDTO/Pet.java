@@ -19,6 +19,7 @@ public abstract class Pet implements Serializable
     private String photoUrl;
     private boolean forSale;
     private String ownerName;
+    private int ownerId; //this would have helped with assosiating pet and owner regardless of name
     private Sale saleInfo;
     private List<String> history = new ArrayList<>();
 

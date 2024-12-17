@@ -70,7 +70,7 @@ public class ListOfCustomersView {
 
         customerListView.getItems().clear();
         for (Customer customer : listContainer.getAllCustomers()) {
-            customerListView.getItems().add(customer.getName());
+            customerListView.getItems().add(customer.toString());
         }
     }
 
@@ -101,7 +101,6 @@ public class ListOfCustomersView {
                     System.out.println("Failed to save updated customer data.");
                 }
 
-                // Refresh the ListView
                 refresh();
             }
         }

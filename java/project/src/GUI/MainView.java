@@ -23,7 +23,7 @@ public class MainView extends Application {
         Pane mainPane = new Pane();
         mainPane.setBackground(new Background(new BackgroundFill(Color.LIGHTBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
 
-        Button button1 = new Button("Kennel Booking");
+        Button button1 = new Button("Kennel");
         Button button2 = new Button("Pet Shop");
         Button button3 = new Button("Pets");
         Button button4 = new Button("Customers");
