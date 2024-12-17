@@ -1,9 +1,10 @@
 package GUI.Pets;
 
 import Data.*;
+import Data.Gender;
 import Data.AnimalDTO.Pet;
 import Data.AnimalDTO.PetFactory;
-import Data.AnimalDTO.Species;
+import Data.Species;
 import GUI.FileHelper;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
@@ -19,14 +20,22 @@ public class AddAPetView
 
   // Fields as properties
   private TextField nameField;
+  private Label nameLabel;
+  private TextField priceField;
+  private Label priceLabel;
   private ComboBox<String> petComboBox;
   private ComboBox<String> genderComboBox;
   private ComboBox<String> stateComboBox;
   private TextField ageField;
   private TextField colorField;
   private TextField commentsField;
+  private Label ageLabel;
+  private Label colorLabel;
+  private Label commentsLabel;
   private Label errorLabel;
   private Label successLabel;
+
+  private final String textFont = "-fx-font-size: 16px;";
 
   public AddAPetView(Pane addAPetPane)
   {
@@ -34,34 +43,78 @@ public class AddAPetView
     addAPetPane.setBackground(new Background(
         new BackgroundFill(Color.LIGHTBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
 
+    BorderPane borderPane = new BorderPane();
+
     // Initialize fields
     nameField = createTextField(addAPetPane, "Name:", 20, 60);
-    petComboBox = createComboBox(addAPetPane, "Species:", 20, 100, "Cat", "Dog",
-        "Fish", "Bird", "Rodents", "Various");
-    genderComboBox = createComboBox(addAPetPane, "Gender:", 20, 140, "male",
-        "female", "undefined");
+    nameLabel = createLabel(addAPetPane, "Name:", 20, 60,
+        textFont);
+
+    petComboBox = createComboBox(addAPetPane, "Species:", 20, 100,
+        Species.getSpeciesDisplayNamesList());
+    genderComboBox = createComboBox(addAPetPane, "Gender:", 20, 140,
+        Gender.getGenderDisplayNamesList());
     stateComboBox = createComboBox(addAPetPane, "State:", 20, 180,
-        "Marked for sell", "Owned");
+        PetState.getPetStateDisplayName());
+
+
+
+
     ageField = createTextField(addAPetPane, "Age:", 20, 220);
+    ageLabel = createLabel(addAPetPane, "Age:", 20, 220,
+        textFont);
     colorField = createTextField(addAPetPane, "Color:", 20, 260);
+    colorLabel = createLabel(addAPetPane, "Color:", 20, 260,
+        textFont);
     commentsField = createTextField(addAPetPane, "Comment:", 20, 300);
-    errorLabel = createLabel(addAPetPane, "", 150, 340,
+    commentsLabel = createLabel(addAPetPane, "Comment:", 20, 300,
+        textFont);
+
+
+    errorLabel = createLabel(addAPetPane, "", 150, 390,
         "-fx-font-size: 14px; -fx-text-fill: red;");
-    successLabel = createLabel(addAPetPane, "", 120, 340,
+    successLabel = createLabel(addAPetPane, "", 120, 390,
         "-fx-font-size: 14px; -fx-text-fill: green;");
 
+
+
+
     // Buttons
-    Button submitButton = createButton(addAPetPane, "Submit", 210, 390,
+    Button submitButton = createButton(addAPetPane, "Submit", 210, 430,
         "-fx-font-size: 16px; -fx-background-color: green; -fx-text-fill: white;");
-    Button resetButton = createButton(addAPetPane, "Reset", 140, 390,
+    Button resetButton = createButton(addAPetPane, "Reset", 140, 430,
         "-fx-font-size: 16px; -fx-background-color: red; -fx-text-fill: white;");
     backButton = createButton(addAPetPane, "Return", 0, 0,
         "-fx-font-size: 20px; -fx-background-color: white;");
     backButton.setPrefWidth(720);
 
+
+    //conditional forms views
+
+    priceField = createTextField(addAPetPane, "Price:", 20, 340);
+    priceLabel = createLabel(addAPetPane, "Price:", 20, 340,
+        textFont);
+    priceField.setVisible(false);
+    priceLabel.setVisible(false);
+
     // Button Actions
     resetButton.setOnAction(e -> resetForm());
     submitButton.setOnAction(e -> handleSubmit());
+    setupFormListeners();
+  }
+
+  private void setupFormListeners()
+  {
+    stateComboBox.valueProperty().addListener((obs, oldVal, newVal) -> {
+      // Check if the new value equals "For Sale"
+      if (PetState.FORSALE.toString().equals(newVal)) {
+        priceField.setVisible(true);
+        priceLabel.setVisible(true);// Show the price field when "For Sale" is selected
+      } else {
+        priceField.setVisible(false); // Hide the price field otherwise
+        priceLabel.setVisible(false);
+      }
+    });
   }
 
   public Button getBackButton()
@@ -83,7 +136,6 @@ public class AddAPetView
   // Method to create a text field
   private TextField createTextField(Pane pane, String labelText, int x, int y)
   {
-    createLabel(pane, labelText, x, y, "-fx-font-size: 16px;");
     TextField textField = new TextField();
     textField.setLayoutX(100);
     textField.setLayoutY(y);
@@ -101,6 +153,7 @@ public class AddAPetView
     comboBox.setEditable(true);
     comboBox.setLayoutX(100);
     comboBox.setLayoutY(y);
+    comboBox.setEditable(false);
     comboBox.setPrefWidth(220);
     comboBox.getItems().addAll(items);
     pane.getChildren().add(comboBox);
@@ -131,6 +184,7 @@ public class AddAPetView
     ageField.setText("");
     colorField.setText("");
     commentsField.setText("");
+    priceField.setText("");
   }
 
   // Submit button action
@@ -139,11 +193,11 @@ public class AddAPetView
     errorLabel.setText("");
     successLabel.setText("");
 
-    String selectedPet = petComboBox.getValue();
+    String selectedSpecies = petComboBox.getValue();
     String selectedGender = genderComboBox.getValue();
     String selectedState = stateComboBox.getValue();
 
-    if (selectedPet == null)
+    if (selectedSpecies == null)
     {
       errorLabel.setText("Please select species.");
     }
@@ -168,12 +222,16 @@ public class AddAPetView
     else if (selectedState == null)
     {
       errorLabel.setText("Please select a state.");
+    } else if (selectedState.equals(PetState.FORSALE.toString()) && (priceField.getText() == null || priceField.getText().trim().isEmpty()))
+    {
+      errorLabel.setText("Please enter a price.");
     }
     else
     {
       try
       {
         double age = Double.parseDouble(ageField.getText().trim());
+        double price = Double.parseDouble(priceField.getText().trim());
         if (age <= 0)
         {
           errorLabel.setText("Age must be a positive number.");
@@ -181,22 +239,29 @@ public class AddAPetView
         else if (age > 100)
         {
           errorLabel.setText("Age can't be higher than 100.");
+        } else if (price <= 0)
+        {
+          errorLabel.setText("Price must be a positive number.");
         }
         else
         {
+          boolean forSale;
           //TODO use strong types enums not check with strings
-          boolean forSale = selectedState.equals("Marked for sell");
+          forSale = selectedState.equals(PetState.FORSALE.toString());
+
+          Gender gender = Gender.valueOf(selectedGender.toUpperCase());
 
           //TODO how to handle many instances
-          Pet newPet = PetFactory.createPet(Species.valueOf(selectedPet.toUpperCase()),
-              nameField.getText(), selectedGender, age, colorField.getText(),
-              commentsField.getText(), selectedState, forSale, "john");
+          Pet pet = PetFactory.createPet(
+              Species.valueOf(selectedSpecies.toUpperCase()),
+              nameField.getText(), gender, age, colorField.getText(),
+              commentsField.getText(), "photo.url", forSale, "john");
 
-          newPet.setForSale(forSale, 100.0);
+          pet.setForSale(forSale, price);
           PetListContainer listContainer = new PetListContainer(
               FileHelper.loadFromFile(fileName));
 
-          listContainer.addPet(newPet);
+          listContainer.addPet(pet);
           System.out.println(listContainer.getAllPets());
           FileHelper.saveToFile(fileName, listContainer.getAllPets());
 
@@ -214,5 +279,10 @@ public class AddAPetView
         errorLabel.setText("Error saving pet.");
       }
     }
+  }
+
+  public void refresh()
+  {
+    resetForm();
   }
 }

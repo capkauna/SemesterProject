@@ -1,9 +1,12 @@
 package Data.AnimalDTO;
 
+import Data.Gender;
+import Data.Species;
+
 //TODO stil missing data
 public class PetFactory
 {
-  public static Pet createPet(Species species, String name, String gender,
+  public static Pet createPet(Species species, String name, Gender gender,
       double age, String color, String comments, String photoUrl,
       boolean forSale, String ownerName)
   {

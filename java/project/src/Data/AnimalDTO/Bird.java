@@ -1,12 +1,14 @@
 package Data.AnimalDTO;
 
+import Data.Gender;
+
 import java.util.Objects;
 
 public class Bird extends Pet {
     private String species;
     private String preferredFood;
 
-    public Bird(String name, String gender, double age, String color, String comments, String photoUrl, boolean forSale, String ownerName, String species, String preferredFood) {
+    public Bird(String name, Gender gender, double age, String color, String comments, String photoUrl, boolean forSale, String ownerName, String species, String preferredFood) {
         super(name,gender,age,color,comments,photoUrl,forSale,ownerName);
         if (species == null)
         {

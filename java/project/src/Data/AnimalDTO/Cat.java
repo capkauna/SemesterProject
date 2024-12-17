@@ -1,5 +1,7 @@
 package Data.AnimalDTO;
 
+import Data.Gender;
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -8,7 +10,7 @@ public class Cat extends Pet implements Serializable
     private String breed;
     private String breeder;
 
-    public Cat(String name, String gender, double age, String color, String comments, String photoUrl, boolean forSale, String ownerName, String breed, String breeder) {
+    public Cat(String name, Gender gender, double age, String color, String comments, String photoUrl, boolean forSale, String ownerName, String breed, String breeder) {
         super(name,gender,age,color,comments,photoUrl,forSale,ownerName);
         if (breed == null){
             throw new IllegalArgumentException("Please add breed information");

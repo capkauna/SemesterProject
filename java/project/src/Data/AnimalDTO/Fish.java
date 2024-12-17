@@ -1,5 +1,7 @@
 package Data.AnimalDTO;
 
+import Data.Gender;
+
 import java.util.Objects;
 
 public class Fish extends Pet {
@@ -12,7 +14,7 @@ public class Fish extends Pet {
         Saltwater
     }
 
-    public Fish(String name, String gender, double age, String color, String comments, String photoUrl, boolean forSale, String ownerName, String species, WaterType waterType, String possiblePredators) {
+    public Fish(String name, Gender gender, double age, String color, String comments, String photoUrl, boolean forSale, String ownerName, String species, WaterType waterType, String possiblePredators) {
         super(name,gender,age,color,comments,photoUrl,forSale,ownerName);
         if (waterType == null)
         {

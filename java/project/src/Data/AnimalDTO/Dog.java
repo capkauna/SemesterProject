@@ -1,12 +1,14 @@
 package Data.AnimalDTO;
 
+import Data.Gender;
+
 import java.util.Objects;
 
 public class Dog extends Pet {
     private String breed;
     private String breeder;
 
-    public Dog(String name, String gender, double age, String color, String comments, String photoUrl, boolean forSale, String ownerName, String breed, String breeder) {
+    public Dog(String name, Gender gender, double age, String color, String comments, String photoUrl, boolean forSale, String ownerName, String breed, String breeder) {
         super(name,gender,age,color,comments,photoUrl,forSale,ownerName);
         if (breed == null){
             throw new IllegalArgumentException("Please add breed information");

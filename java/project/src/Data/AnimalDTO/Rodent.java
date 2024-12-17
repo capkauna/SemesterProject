@@ -1,5 +1,7 @@
 package Data.AnimalDTO;
 
+import Data.Gender;
+
 import java.util.Objects;
 
 public class Rodent extends Pet
@@ -7,7 +9,7 @@ public class Rodent extends Pet
     private String species;
     private boolean bites; // can be a String for additional context (e.g., "Yes, occasionally") That can be added to comments section
 
-    public Rodent(String name, String gender, double age, String color, String comments, String photoUrl, boolean forSale, String ownerName, String species, boolean bites) {
+    public Rodent(String name, Gender gender, double age, String color, String comments, String photoUrl, boolean forSale, String ownerName, String species, boolean bites) {
         super(name,gender,age,color,comments,photoUrl,forSale,ownerName);
         this.species = species;
         this.bites = bites;

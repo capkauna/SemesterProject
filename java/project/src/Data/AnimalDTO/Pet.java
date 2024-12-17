@@ -1,5 +1,6 @@
 package Data.AnimalDTO;
 
+import Data.Gender;
 import Data.Sale;
 
 import java.io.Serializable;
@@ -10,11 +11,11 @@ import java.util.Objects;
 public abstract class Pet implements Serializable
 {
     private String name;
-    private String gender;
+    private Gender gender;
     private double age;
     private String color;
     private String comments;
-    //TODO
+    //TODO use photo url for pet picture
     private String photoUrl;
     private boolean forSale;
     private String ownerName;
@@ -22,7 +23,7 @@ public abstract class Pet implements Serializable
     private List<String> history = new ArrayList<>();
 
 
-    public Pet(String name, String gender, double age, String color, String comments, String photoUrl, boolean forSale, String ownerName)
+    public Pet(String name, Gender gender, double age, String color, String comments, String photoUrl, boolean forSale, String ownerName)
     {
         //TODO validate correctly pet state should we add a new input in pet list to determin either
         // Pet is owned or pet is marked for sale/salable?
@@ -38,11 +39,11 @@ public abstract class Pet implements Serializable
         this.saleInfo = null;
     }
     //constructor without name
-    public Pet(String gender, double age, String color, String comments, String photoUrl, boolean forSale, String ownerName) {
+    public Pet(Gender gender, double age, String color, String comments, String photoUrl, boolean forSale, String ownerName) {
         this(null, gender,age,color,comments,photoUrl,forSale,ownerName);
     }
     //constructor without photo, has name because petshop pets are the only ones that can be without a name, and those NEED a photo
-    public Pet(String name, String gender, double age, String color, String comments, boolean forSale, String ownerName) {
+    public Pet(String name, Gender gender, double age, String color, String comments, boolean forSale, String ownerName) {
         this(name,gender,age,color,comments,null,forSale,ownerName);
     }
     //handling common condition to assign a pet to either a customer, either for sale
@@ -60,10 +61,10 @@ public abstract class Pet implements Serializable
         this.name = name;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 

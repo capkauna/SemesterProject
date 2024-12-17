@@ -23,8 +23,8 @@ public class MainView extends Application {
         Pane mainPane = new Pane();
         mainPane.setBackground(new Background(new BackgroundFill(Color.LIGHTBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
 
-        Button button1 = new Button("Kennel");
-        Button button2 = new Button("Petshop");
+        Button button1 = new Button("Kennel Booking");
+        Button button2 = new Button("Pet Shop");
         Button button3 = new Button("Pets");
         Button button4 = new Button("Customers");
 
@@ -50,7 +50,7 @@ public class MainView extends Application {
         button4.setLayoutY(220);
 
         mainPane.getChildren().addAll(button1, button2, button3, button4);
-        Scene mainScene = new Scene(mainPane, 720, 720);
+        Scene mainScene = new Scene(mainPane, 1000, 720);
 
         //Kennel
         Pane kennelPane = new Pane();
@@ -157,11 +157,15 @@ public class MainView extends Application {
 
         //Add a pet
         AddAPetView addAPetView = new AddAPetView(pets1Pane);
-        addAPetView.getBackButton().setOnAction(e -> {primaryStage.setScene(petsScene);});
+        addAPetView.getBackButton().setOnAction(e -> {primaryStage.setScene(petsScene);
+            addAPetView.refresh();
+        });
 
         //List of pets
         ListOfPetsView listOfPetsView = new ListOfPetsView(pets2Pane);
-        listOfPetsView.getBackButton().setOnAction(e -> {primaryStage.setScene(petsScene);});
+        listOfPetsView.getBackButton().setOnAction(e -> {primaryStage.setScene(petsScene);
+            listOfPetsView.refresh();
+        });
 
         //Customers
         Pane customersPane = new Pane();
