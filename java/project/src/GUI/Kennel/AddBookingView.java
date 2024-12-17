@@ -1,164 +1,274 @@
 package GUI.Kennel;
 
+import Data.*;
+import Data.AnimalDTO.Date;
+import Data.AnimalDTO.Pet;
+import Helpers.FileHelper;
+import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.geometry.Insets;
+
+import java.io.IOException;
 import java.time.LocalDate;
+import java.util.List;
 
-public class AddBookingView
-{
-    private final Button backButton; // Back button reference
+public class AddBookingView {
+    private final String petFileName = "pets.dat";
+    private final String customerFileName = "customers.dat";
+    private final String bookingFileName = "bookings.dat";
+    private Button backButton;
+    private ComboBox<String> customerComboBox;
+    private ComboBox<String> petComboBox;
+    private DatePicker startDatePicker;
+    private DatePicker endDatePicker;
+    private TextField pricePerDayField;
+    private Label resultLabel;
+    private Label resultLabel2;
+    private List<Customer> customers;
+    private List<Pet> pets;
 
-    public AddBookingView(Pane bookingPane) {
-        bookingPane.getChildren().clear();
-        bookingPane.setBackground(new Background(new BackgroundFill(Color.LIGHTBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
+    public AddBookingView(Pane addBookingPane) {
+        addBookingPane.getChildren().clear();
+        addBookingPane.setBackground(new Background(new BackgroundFill(Color.LIGHTBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
 
-        // Main.Customer
-        Label bookingLabel1 = new Label("Choose a Customer:");
-        bookingLabel1.setLayoutX(20);
-        bookingLabel1.setLayoutY(60);
-        bookingLabel1.setStyle("-fx-font-size: 16px;");
-        bookingPane.getChildren().add(bookingLabel1);
+        setupCustomerSection(addBookingPane);
+        setupPetSection(addBookingPane);
+        setupStartDateSection(addBookingPane);
+        setupEndDateSection(addBookingPane);
+        setupPricePerDaySection(addBookingPane);
+        setupOutputSection(addBookingPane);
+        setupButtons(addBookingPane);
+    }
 
-        ComboBox<String> customerComboBox = new ComboBox<>();
-        customerComboBox.setEditable(true);
+    private void setupCustomerSection(Pane pane) {
+        Label customerLabel = new Label("Choose a Customer:");
+        customerLabel.setLayoutX(20);
+        customerLabel.setLayoutY(60);
+        customerLabel.setStyle("-fx-font-size: 16px;");
+        pane.getChildren().add(customerLabel);
+
+        customerComboBox = new ComboBox<>();
+        customerComboBox.setEditable(false);
         customerComboBox.setLayoutX(20);
         customerComboBox.setLayoutY(90);
         customerComboBox.setPrefWidth(380);
+        pane.getChildren().add(customerComboBox);
 
-        // TODO - Add customers from the list
-        customerComboBox.getItems().addAll("1", "2", "3", "4");
-        bookingPane.getChildren().add(customerComboBox);
 
-        // Pet
-        Label bookingLabel2 = new Label("Choose a Pet:");
-        bookingLabel2.setLayoutX(20);
-        bookingLabel2.setLayoutY(120);
-        bookingLabel2.setStyle("-fx-font-size: 16px;");
-        bookingPane.getChildren().add(bookingLabel2);
+        loadCustomersAndPopulateComboBox();
+    }
 
-        ComboBox<String> petComboBox = new ComboBox<>();
-        petComboBox.setEditable(true);
+    private void setupPetSection(Pane pane) {
+        Label petLabel = new Label("Choose a Pet:");
+        petLabel.setLayoutX(20);
+        petLabel.setLayoutY(120);
+        petLabel.setStyle("-fx-font-size: 16px;");
+        pane.getChildren().add(petLabel);
+
+        petComboBox = new ComboBox<>();
+        petComboBox.setEditable(false);
         petComboBox.setLayoutX(20);
         petComboBox.setLayoutY(150);
         petComboBox.setPrefWidth(380);
+        pane.getChildren().add(petComboBox);
 
-        // TODO get pets from the list
-        petComboBox.getItems().addAll("1", "2", "3", "4");
-        bookingPane.getChildren().add(petComboBox);
+        loadPetsAndPopulateComboBox();
+    }
 
-        // Start Date End Date
-        Label startDateLabel = new Label("Start Date:");
+    private void setupStartDateSection(Pane pane) {
+        Label startDateLabel = new Label("Date of Sale:");
         startDateLabel.setLayoutX(20);
         startDateLabel.setLayoutY(190);
         startDateLabel.setStyle("-fx-font-size: 16px;");
-        bookingPane.getChildren().add(startDateLabel);
+        pane.getChildren().add(startDateLabel);
 
-        DatePicker startDatePicker = new DatePicker();
-        startDatePicker.setLayoutX(100);
+        startDatePicker = new DatePicker();
+        startDatePicker.setLayoutX(120);
         startDatePicker.setLayoutY(190);
-        bookingPane.getChildren().add(startDatePicker);
+        pane.getChildren().add(startDatePicker);
+    }
 
-        Label endDateLabel = new Label("End Date:");
+    private void setupEndDateSection(Pane pane) {
+        Label endDateLabel = new Label("Date of Sale:");
         endDateLabel.setLayoutX(20);
-        endDateLabel.setLayoutY(230);
+        endDateLabel.setLayoutY(190);
         endDateLabel.setStyle("-fx-font-size: 16px;");
-        bookingPane.getChildren().add(endDateLabel);
+        pane.getChildren().add(endDateLabel);
 
-        DatePicker endDatePicker = new DatePicker();
-        endDatePicker.setLayoutX(100);
-        endDatePicker.setLayoutY(230);
-        bookingPane.getChildren().add(endDatePicker);
+        endDatePicker = new DatePicker();
+        endDatePicker.setLayoutX(120);
+        endDatePicker.setLayoutY(190);
+        pane.getChildren().add(endDatePicker);
+    }
 
-        //Output
-        Label resultLabel = new Label();
+    private void setupPricePerDaySection(Pane pane) {
+        Label pricePerDayLabel = new Label("Set a Price (DK):");
+        pricePerDayLabel.setLayoutX(20);
+        pricePerDayLabel.setLayoutY(230);
+        pricePerDayLabel.setStyle("-fx-font-size: 16px;");
+        pane.getChildren().add(pricePerDayLabel);
+
+        pricePerDayField = new TextField();
+        pricePerDayField.setLayoutX(140);
+        pricePerDayField.setLayoutY(230);
+        pricePerDayField.setPrefWidth(100);
+        pane.getChildren().add(pricePerDayField);
+    }
+
+    private void setupOutputSection(Pane pane) {
+        resultLabel = new Label();
         resultLabel.setLayoutX(150);
         resultLabel.setLayoutY(310);
         resultLabel.setStyle("-fx-font-size: 14px; -fx-text-fill: red;");
-        bookingPane.getChildren().add(resultLabel);
+        pane.getChildren().add(resultLabel);
 
-        Label resultLabel2 = new Label();
+        resultLabel2 = new Label();
         resultLabel2.setLayoutX(120);
         resultLabel2.setLayoutY(310);
         resultLabel2.setStyle("-fx-font-size: 14px; -fx-text-fill: green;");
-        bookingPane.getChildren().add(resultLabel2);
+        pane.getChildren().add(resultLabel2);
+    }
 
-        // Price
-        Label priceLabel = new Label("Set a price per day (DK):");
-        priceLabel.setLayoutX(20);
-        priceLabel.setLayoutY(270);
-        priceLabel.setStyle("-fx-font-size: 16px;");
-        bookingPane.getChildren().add(priceLabel);
-
-        TextField priceField = new TextField();
-        priceField.setLayoutX(200);
-        priceField.setLayoutY(270);
-        priceField.setPrefWidth(100);
-        bookingPane.getChildren().add(priceField);
-
-        // Submit
+    private void setupButtons(Pane pane) {
         Button submitButton = new Button("Submit");
         submitButton.setLayoutX(210);
         submitButton.setLayoutY(350);
         submitButton.setStyle("-fx-font-size: 16px; -fx-background-color: green; -fx-text-fill: white;");
-        bookingPane.getChildren().add(submitButton);
+        pane.getChildren().add(submitButton);
 
-        //Reset
         Button resetButton = new Button("Reset");
         resetButton.setLayoutX(140);
         resetButton.setLayoutY(350);
         resetButton.setStyle("-fx-font-size: 16px; -fx-background-color: red; -fx-text-fill: white;");
-        bookingPane.getChildren().add(resetButton);
+        pane.getChildren().add(resetButton);
 
-        resetButton.setOnAction(e -> {
-            customerComboBox.setValue(null);
-            petComboBox.setValue(null);
-            startDatePicker.setValue(null);
-            endDatePicker.setValue(null);
-            resultLabel.setText("");
-            resultLabel2.setText("");
-            priceField.setText("");
-        });
-
-        submitButton.setOnAction(e -> {
-            String selectedCustomer = customerComboBox.getValue();
-            String selectedPet = petComboBox.getValue();
-            LocalDate startDate = startDatePicker.getValue();
-            LocalDate endDate = endDatePicker.getValue();
-
-                if (selectedCustomer == null) {
-                    resultLabel.setText("Please select a customer.");
-                } else if (selectedPet == null) {
-                    resultLabel.setText("Please select a pet.");
-                } else if (startDate == null || endDate == null) {
-                    resultLabel.setText("Please select both start and end dates.");
-                } else if (endDate.isBefore(startDate)) {
-                    resultLabel.setText("End date cannot be before start date.");
-                } else if (priceField.getText() == null || priceField.getText().trim().isEmpty()) {
-                    resultLabel.setText("Please set a price per day.");
-                } else {
-                    try {
-                        double price = Double.parseDouble(priceField.getText().trim());
-                        if (price <= 0) {
-                            resultLabel.setText("Price must be a positive number.");
-                        } else if (price > 100) {
-                            resultLabel.setText("Price can't be higher than 100.");
-                        } else {
-                            resultLabel.setText("");
-                            resultLabel2.setText("Booking successfully created");
-                        }
-                    } catch (NumberFormatException ex) {
-                        resultLabel.setText("Price must be a number.");
-                    }
-                }
-            });
         backButton = new Button("Return");
         backButton.setStyle("-fx-font-size: 20px; -fx-background-color: white;");
         backButton.setPrefWidth(420);
-        bookingPane.getChildren().add(backButton);
+        pane.getChildren().add(backButton);
+
+        resetButton.setOnAction(e -> resetFields());
+        submitButton.setOnAction(e -> handleSubmit());
     }
+
+    private void resetFields() {
+        customerComboBox.setValue(null);
+        petComboBox.setValue(null);
+        startDatePicker.setValue(null);
+        endDatePicker.setValue(null);
+        pricePerDayField.setText("");
+        resultLabel.setText("");
+        resultLabel2.setText("");
+    }
+
+    private void handleSubmit() {
+        String selectedCustomer = customerComboBox.getValue();
+        String selectedPet = petComboBox.getValue();
+        LocalDate startDate = startDatePicker.getValue();
+        LocalDate endDate = endDatePicker.getValue();
+        String pricePerDayText = pricePerDayField.getText();
+
+        resultLabel.setText(""); // Clear previous errors
+        resultLabel2.setText("");
+
+        if (selectedCustomer == null || selectedCustomer.trim().isEmpty()) {
+            resultLabel.setText("Please choose a customer.");
+            return;
+        }
+        if (selectedPet == null || selectedPet.trim().isEmpty()) {
+            resultLabel.setText("Please choose a pet.");
+            return;
+        }
+        if (startDate == null) {
+            resultLabel.setText("Please select a valid sale date.");
+            return;
+        }
+        if (endDate == null) {
+            resultLabel.setText("Please select a valid sale date.");
+            return;
+        }
+        if (pricePerDayText == null || pricePerDayText.trim().isEmpty()) {
+            resultLabel.setText("Please enter a price.");
+            return;
+        }
+
+        try {
+            double price = Double.parseDouble(pricePerDayText.trim());
+            if (price <= 0) {
+                resultLabel.setText("Price must be a positive number.");
+                return;
+            } else if (price > 10000) {
+                resultLabel.setText("Price cannot exceed 10,000 DK.");
+                return;
+            }
+            resultLabel2.setText("Sale successfully recorded.");
+        } catch (NumberFormatException ex) {
+            resultLabel.setText("Price must be a number.");
+        }
+
+        try {
+            Customer customerToSave = null;
+            Pet petToSave = null;
+            for (Customer customer : customers) {
+                if (customer.getName().equals(selectedCustomer)) {
+                    customerToSave = customer;
+                    break;
+                }
+            }
+            for (Pet pet : pets) {
+                if (pet.getName().equals(selectedPet)) {
+                    petToSave = pet;
+                    break;
+                }
+            }
+
+            Date startDateToSave = new Date(startDate.getDayOfMonth(), startDate.getMonthValue(), startDate.getYear());
+            Date endDateToSave = new Date(endDate.getDayOfMonth(), endDate.getMonthValue(), endDate.getYear());
+            BookingsList booking  = new BookingsList();
+            booking.addBooking(petToSave, customerToSave, dateInterval, Double.parseDouble(pricePerDayText), totalPrice);
+            FileHelper.saveToFile(bookingFileName, booking.getAllBookings());
+
+
+            //TODO make sure file works with serializable
+            System.out.println("Booking recorded: " + booking.getAllBookings().get(booking.getAllBookings().size() - 1));
+        } catch (IOException e) {
+            //TODO show label
+        }
+    }
+
+    private void loadPetsAndPopulateComboBox() {
+        try {
+            PetListContainer listContainer = new PetListContainer(FileHelper.loadFromFile(petFileName));
+            pets = listContainer.getPetsForSale();
+            petComboBox.getItems().clear();
+            for (Pet pet : listContainer.getPetsForSale()) {
+                petComboBox.getItems().add(pet.getName());
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("No existing pet data found.");
+        }
+    }
+
+    private void loadCustomersAndPopulateComboBox() {
+        try {
+            CustomerListContainer listContainer = new CustomerListContainer(FileHelper.loadFromFile(customerFileName));
+            customers = listContainer.getAllCustomers();
+            customerComboBox.getItems().clear();
+            for (Customer customer : listContainer.getAllCustomers()) {
+                customerComboBox.getItems().add(customer.getName());
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("No existing customer data found.");
+        }
+    }
+
     public Button getBackButton() {
         return backButton;
+    }
+
+    public void refresh() {
+        loadCustomersAndPopulateComboBox();
+        loadPetsAndPopulateComboBox();
     }
 }

@@ -338,7 +338,7 @@ public class AddAPetView
     if(!forSale) {
       pet.setOwnerName(customerComboBox.getValue());
       CustomerListContainer customerListContainer = new CustomerListContainer(FileHelper.loadFromFile(customerFileName));
-      customerListContainer.getCustomer(customerComboBox.getValue()).addPet(pet);
+      customerListContainer.getCustomer(customerComboBox.getValue());
       FileHelper.saveToFile(customerFileName, customerListContainer.getAllCustomers());
 
     }

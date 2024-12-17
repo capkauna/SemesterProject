@@ -11,7 +11,7 @@ public class Sale implements Serializable
     private double finalPrice;
     private boolean isSold;
 
-    //sold pet constructor for Main.SalesList use only
+    //sold pet constructor for SalesList use only
     public Sale(Date saleDate,double price, double finalPrice) {
         if (saleDate == null)
         {

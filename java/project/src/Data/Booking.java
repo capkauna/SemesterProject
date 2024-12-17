@@ -5,15 +5,19 @@ import Data.AnimalDTO.Pet;
 
 public class Booking {
   private DateInterval dateInterval;
+  private Date startDate;
+  private Date endDate;
   private Pet pet;
-  private Customer customer; 
+  private Customer booker;
   private double pricePerDay;
+  private double totalPrice;
   
-  public Booking(Date startDate , Date endDate, Pet pet, Customer customer, double pricePerDay) {
+  public Booking(DateInterval dateInterval, double pricePerDay, double totalPrice) {
     this.dateInterval = new DateInterval(startDate,endDate);
-    this.pet = pet;
-    this.customer = customer;
+//    this.pet = pet;
+//    this.booker = booker;
     this.pricePerDay = pricePerDay;
+    this.totalPrice = totalPrice;
   }
 
   public Date getStartDate() {
@@ -28,13 +32,13 @@ public class Booking {
     return pricePerDay;
   }
 
-  public Pet getPet() {
-    return pet;
-  }
-
-  public Customer getCustomer() {
-    return customer;
-  }
+//  public Pet getPet() {
+//    return pet;
+//  }
+//
+//  public Customer getBooker() {
+//    return booker;
+//  }
 
   public void setStartDate(Date startDate) {
     dateInterval.setStartDate(startDate);
@@ -48,13 +52,13 @@ public class Booking {
     this.pricePerDay = pricePerDay;
   }
 
-  public void setPet(Pet pet) {
-    this.pet = pet;
-  }
-
-  public void setCustomer(Customer customer) {
-    this.customer = customer;
-  }
+//  public void setPet(Pet pet) {
+//    this.pet = pet;
+//  }
+//
+//  public void setBooker(Customer booker) {
+//    this.booker = booker;
+//  }
 
   public int numberOfDays() {
     return dateInterval.numberOfDays();
@@ -66,7 +70,7 @@ public class Booking {
 
   @Override
   public String toString() {
-    return "Main.Booking for " + pet + " by " + customer + ", Total Price: " + totalPrice();
+    return "Main.Booking for " + pet + " by " + booker + ", Total Price: " + totalPrice();
   }
   public boolean equals(Object obj) {
     if (this == obj) return true;
@@ -75,7 +79,7 @@ public class Booking {
     return Double.compare(booking.pricePerDay, pricePerDay) == 0 &&
       dateInterval.equals(booking.dateInterval) &&
         pet.equals(booking.pet) &&
-        customer.equals(booking.customer);
+        booker.equals(booking.booker);
   }
 }
 

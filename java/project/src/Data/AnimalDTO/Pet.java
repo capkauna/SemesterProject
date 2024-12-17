@@ -1,5 +1,6 @@
 package Data.AnimalDTO;
 
+import Data.Booking;
 import Data.Gender;
 import Data.Sale;
 
@@ -21,6 +22,7 @@ public abstract class Pet implements Serializable
     private String ownerName;
     private int ownerId; //this would have helped with assosiating pet and owner regardless of name
     private Sale saleInfo;
+    private Booking bookingInfo;
     private List<String> history = new ArrayList<>();
 
 
@@ -126,6 +128,10 @@ public abstract class Pet implements Serializable
     }
     public Sale getSaleInfo(){
         return saleInfo;
+    }
+
+    public Booking getBookingInfo(){
+        return bookingInfo;
     }
 
 
