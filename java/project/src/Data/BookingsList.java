@@ -11,7 +11,7 @@ import java.util.Objects;
 
 public class BookingsList {
 
-    // Inner class to encapsulate a sale with pet and buyer details, for storage purposes
+    // Inner class to encapsulate a boooking with pet and booker details, for storage purposes
     public static class BookingRecord implements Serializable
     {
         private Pet pet;
