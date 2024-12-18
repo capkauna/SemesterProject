@@ -68,6 +68,7 @@ public class AddBookingView {
         customerComboBox.setEditable(false);
         customerComboBox.setPrefWidth(300);
 
+
         loadCustomersAndPopulateComboBox();
 
         customerSection.add(customerLabel, 0, 0);
@@ -141,8 +142,8 @@ public class AddBookingView {
         resetButton.setOnAction(e -> resetFields());
 
         backButton = new Button("Return");
-        backButton.setStyle("-fx-font-size: 16px; -fx-background-color: white;");
-        backButton.setPrefWidth(150);
+        backButton.setStyle("-fx-font-size: 20px; -fx-background-color: white;");
+        backButton.setPrefWidth(420);
 
         buttonSection.getChildren().addAll(resetButton, submitButton, backButton);
         return buttonSection;

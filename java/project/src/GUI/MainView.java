@@ -33,24 +33,24 @@ public class MainView extends Application {
         button3.setStyle("-fx-font-size: 25px; -fx-background-color: white");
         button4.setStyle("-fx-font-size: 25px; -fx-background-color: white");
 
-        button1.setPrefSize(180, 180);
-        button1.setLayoutX(20);
-        button1.setLayoutY(20);
+        button1.setPrefSize(200, 200);
+        button1.setLayoutX(150);
+        button1.setLayoutY(30);
 
-        button2.setPrefSize(180, 180);
-        button2.setLayoutX(220);
-        button2.setLayoutY(20);
+        button2.setPrefSize(200, 200);
+        button2.setLayoutX(390);
+        button2.setLayoutY(30);
 
-        button3.setPrefSize(180, 180);
-        button3.setLayoutX(20);
-        button3.setLayoutY(220);
+        button3.setPrefSize(200, 200);
+        button3.setLayoutX(150);
+        button3.setLayoutY(260);
 
-        button4.setPrefSize(180, 180);
-        button4.setLayoutX(220);
-        button4.setLayoutY(220);
+        button4.setPrefSize(200, 200);
+        button4.setLayoutX(390);
+        button4.setLayoutY(260);
 
         mainPane.getChildren().addAll(button1, button2, button3, button4);
-        Scene mainScene = new Scene(mainPane, 1000, 720);
+        Scene mainScene = new Scene(mainPane, 720, 500);
 
         //Kennel
         Pane kennelPane = new Pane();
@@ -62,24 +62,24 @@ public class MainView extends Application {
         kennelButton1.setStyle("-fx-font-size: 20px; -fx-background-color: white");
         kennelButton2.setStyle("-fx-font-size: 20px; -fx-background-color: white");
 
-        kennelButton1.setPrefSize(180, 180);
-        kennelButton1.setLayoutX(20);
-        kennelButton1.setLayoutY(100);
+        kennelButton1.setPrefSize(200, 200);
+        kennelButton1.setLayoutX(140);
+        kennelButton1.setLayoutY(150);
 
-        kennelButton2.setPrefSize(180, 180);
-        kennelButton2.setLayoutX(220);
-        kennelButton2.setLayoutY(100);
+        kennelButton2.setPrefSize(200, 200);
+        kennelButton2.setLayoutX(380);
+        kennelButton2.setLayoutY(150);
 
         kennelBackButton.setStyle("-fx-font-size: 20px; -fx-background-color: white");
         kennelBackButton.setAlignment(Pos.TOP_CENTER);
         kennelBackButton.setPrefWidth(720);
         kennelPane.getChildren().addAll(kennelButton1, kennelButton2, kennelBackButton);
-        Scene kennelScene = new Scene(kennelPane, 720, 720);
+        Scene kennelScene = new Scene(kennelPane, 720, 500);
 
         Pane kennel1Pane = new Pane();
-        Scene kennel1Scene = new Scene(kennel1Pane, 720, 720);
+        Scene kennel1Scene = new Scene(kennel1Pane, 720, 500);
         Pane kennel2Pane = new Pane();
-        Scene kennel2Scene = new Scene(kennel2Pane, 720, 720);
+        Scene kennel2Scene = new Scene(kennel2Pane, 720, 500);
 
         //Add Booking (Kennel)
         AddBookingView addBookingView = new AddBookingView(kennel1Pane);
@@ -99,24 +99,24 @@ public class MainView extends Application {
         petshopButton1.setStyle("-fx-font-size: 20px; -fx-background-color: white");
         petshopButton2.setStyle("-fx-font-size: 20px; -fx-background-color: white");
 
-        petshopButton1.setPrefSize(180, 180);
-        petshopButton1.setLayoutX(20);
-        petshopButton1.setLayoutY(100);
+        petshopButton1.setPrefSize(200, 200);
+        petshopButton1.setLayoutX(140);
+        petshopButton1.setLayoutY(150);
 
-        petshopButton2.setPrefSize(180, 180);
-        petshopButton2.setLayoutX(220);
-        petshopButton2.setLayoutY(100);
+        petshopButton2.setPrefSize(200, 200);
+        petshopButton2.setLayoutX(380);
+        petshopButton2.setLayoutY(150);
 
         petshopBackButton.setStyle("-fx-font-size: 20px; -fx-background-color: white");
         petshopBackButton.setAlignment(Pos.TOP_CENTER);
         petshopBackButton.setPrefWidth(720);
         petshopPane.getChildren().addAll(petshopButton1, petshopButton2, petshopBackButton);
-        Scene petshopScene = new Scene(petshopPane, 720, 720);
+        Scene petshopScene = new Scene(petshopPane, 720, 500);
 
         Pane petshop1Pane = new Pane();
-        Scene petshop1Scene = new Scene(petshop1Pane, 720, 720);
+        Scene petshop1Scene = new Scene(petshop1Pane, 720, 500);
         Pane petshop2Pane = new Pane();
-        Scene petshop2Scene = new Scene(petshop2Pane, 720, 720);
+        Scene petshop2Scene = new Scene(petshop2Pane, 720, 500);
 
         //Sell a pet
         SellAPetView sellAPetView = new SellAPetView(petshop1Pane);
@@ -136,24 +136,24 @@ public class MainView extends Application {
         petsButton1.setStyle("-fx-font-size: 20px; -fx-background-color: white");
         petsButton2.setStyle("-fx-font-size: 20px; -fx-background-color: white");
 
-        petsButton1.setPrefSize(180, 180);
-        petsButton1.setLayoutX(20);
-        petsButton1.setLayoutY(100);
+        petsButton1.setPrefSize(200, 200);
+        petsButton1.setLayoutX(140);
+        petsButton1.setLayoutY(150);
 
-        petsButton2.setPrefSize(180, 180);
-        petsButton2.setLayoutX(220);
-        petsButton2.setLayoutY(100);
+        petsButton2.setPrefSize(200, 200);
+        petsButton2.setLayoutX(380);
+        petsButton2.setLayoutY(150);
 
         petsBackButton.setStyle("-fx-font-size: 20px; -fx-background-color: white");
         petsBackButton.setAlignment(Pos.TOP_CENTER);
         petsBackButton.setPrefWidth(720);
         petsPane.getChildren().addAll(petsButton1, petsButton2, petsBackButton);
-        Scene petsScene = new Scene(petsPane, 720, 720);
+        Scene petsScene = new Scene(petsPane, 720, 500);
 
         Pane pets1Pane = new Pane();
-        Scene pets1Scene = new Scene(pets1Pane, 720, 720);
+        Scene pets1Scene = new Scene(pets1Pane, 720, 500);
         Pane pets2Pane = new Pane();
-        Scene pets2Scene = new Scene(pets2Pane, 720, 720);
+        Scene pets2Scene = new Scene(pets2Pane, 720, 500);
 
         //Add a pet
         AddAPetView addAPetView = new AddAPetView(pets1Pane);
@@ -177,25 +177,25 @@ public class MainView extends Application {
         customersButton1.setStyle("-fx-font-size: 20px; -fx-background-color: white");
         customersButton2.setStyle("-fx-font-size: 20px; -fx-background-color: white");
 
-        customersButton1.setPrefSize(180, 180);
-        customersButton1.setLayoutX(20);
-        customersButton1.setLayoutY(100);
+        customersButton1.setPrefSize(200, 200);
+        customersButton1.setLayoutX(140);
+        customersButton1.setLayoutY(150);
 
-        customersButton2.setPrefSize(180, 180);
-        customersButton2.setLayoutX(220);
-        customersButton2.setLayoutY(100);
+        customersButton2.setPrefSize(200, 200);
+        customersButton2.setLayoutX(380);
+        customersButton2.setLayoutY(150);
 
         customersBackButton.setStyle("-fx-font-size: 20px; -fx-background-color: white");
         customersBackButton.setAlignment(Pos.TOP_CENTER);
         customersBackButton.setPrefWidth(720);
 
         customersPane.getChildren().addAll(customersButton1, customersButton2, customersBackButton);
-        Scene customersScene = new Scene(customersPane, 720, 720);
+        Scene customersScene = new Scene(customersPane, 720, 500);
 
         Pane customers1Pane = new Pane();
-        Scene customers1Scene = new Scene(customers1Pane, 720, 720);
+        Scene customers1Scene = new Scene(customers1Pane, 720, 500);
         Pane customers2Pane = new Pane();
-        Scene customers2Scene = new Scene(customers2Pane, 720, 720);
+        Scene customers2Scene = new Scene(customers2Pane, 720, 500);
 
         //Add a customer
         AddACustomerView addACustomer = new AddACustomerView(customers1Pane);

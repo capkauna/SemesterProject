@@ -38,7 +38,7 @@ public class AddACustomerView {
     Button submitButton = createButton(addACustomerPane, "Submit", 210, 350, "-fx-font-size: 16px; -fx-background-color: green; -fx-text-fill: white;");
     Button resetButton = createButton(addACustomerPane, "Reset", 140, 350, "-fx-font-size: 16px; -fx-background-color: red; -fx-text-fill: white;");
     backButton = createButton(addACustomerPane, "Return", 0, 0, "-fx-font-size: 20px; -fx-background-color: white;");
-    backButton.setPrefWidth(420);
+    backButton.setPrefWidth(720);
 
     // Button Actions
     resetButton.setOnAction(e -> resetForm());

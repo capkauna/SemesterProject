@@ -25,7 +25,7 @@ public class ListOfPetsView {
         // Initialize ListView for pets
         petListView = new ListView<>();
         petListView.setPrefWidth(400);
-        petListView.setPrefHeight(300);
+        petListView.setPrefHeight(200);
         petListView.setStyle("-fx-font-size: 16px;");
 
         // Initialize back button

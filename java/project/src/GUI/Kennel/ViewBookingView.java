@@ -19,7 +19,7 @@ public class ViewBookingView
         // Back Button
         backButton = new Button("Return");
         backButton.setStyle("-fx-font-size: 20px; -fx-background-color: white;");
-        backButton.setPrefWidth(420);
+        backButton.setPrefWidth(720);
         viewBookingPane.getChildren().add(backButton);
     }
     public Button getBackButton() {

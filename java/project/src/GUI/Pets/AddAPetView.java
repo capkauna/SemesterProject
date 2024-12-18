@@ -93,8 +93,6 @@ public class AddAPetView
         "-fx-font-size: 14px; -fx-text-fill: green;");
 
 
-
-
     // Buttons
     Button submitButton = createButton(addAPetPane, "Submit", 210, 430,
         "-fx-font-size: 16px; -fx-background-color: green; -fx-text-fill: white;");

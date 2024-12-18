@@ -23,14 +23,14 @@ public class PetsForSaleView {
 
         // Initialize ListView for pets
         petForSaleListView = new ListView<>();
-        petForSaleListView.setPrefWidth(400);
+        petForSaleListView.setPrefWidth(300);
         petForSaleListView.setPrefHeight(300);
         petForSaleListView.setStyle("-fx-font-size: 16px;");
 
         // Initialize back button
         backButton = new Button("Return");
         backButton.setStyle("-fx-font-size: 20px; -fx-background-color: white;");
-        backButton.setPrefWidth(420);
+        backButton.setPrefWidth(720);
 
 
         // Add components to the pane

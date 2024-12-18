@@ -23,14 +23,15 @@ public class ListOfCustomersView {
 
         // Create and style ListView for customers
         customerListView = new ListView<>();
-        customerListView.setPrefWidth(400);
+        customerListView.setPrefWidth(720);
         customerListView.setPrefHeight(300);
         customerListView.setStyle("-fx-font-size: 16px;");
 
         // Create and style back button
         backButton = new Button("Return");
         backButton.setStyle("-fx-font-size: 20px; -fx-background-color: white;");
-        backButton.setPrefWidth(420);
+        backButton.setPrefWidth(720);
+        backButton.setLayoutY(20);
 
         // Create and style delete button
         deleteButton = new Button("Delete Selected");
@@ -40,7 +41,7 @@ public class ListOfCustomersView {
 
         // Add components to the pane
         VBox vbox = new VBox(10, customerListView, deleteButton, backButton);
-        vbox.setPadding(new Insets(20));
+        //vbox.setPadding(new Insets(20));
         listOfCustomersPane.getChildren().add(vbox);
 
         // Load initial customers
