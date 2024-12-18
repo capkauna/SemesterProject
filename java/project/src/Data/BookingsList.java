@@ -89,7 +89,7 @@ public class BookingsList {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("Sales List:\n");
+        StringBuilder sb = new StringBuilder("Bookings List:\n");
         for (int i = 0; i < bookings.size(); i++) {
             BookingRecord record = bookings.get(i);
             sb.append(i + 1).append(") ")
