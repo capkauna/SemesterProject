@@ -45,9 +45,7 @@ public class AddBookingView {
         // Back Button
         backButton = new Button("Return");
         backButton.setStyle("-fx-font-size: 20px; -fx-background-color: white;");
-        backButton.setPrefWidth(420);
-        backButton.setLayoutX(10);
-        backButton.setLayoutY(10);
+        backButton.setPrefWidth(720);
         pane.getChildren().add(backButton);
 
         // Reset Button
