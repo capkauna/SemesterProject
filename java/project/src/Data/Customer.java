@@ -94,15 +94,16 @@ public class Customer implements Serializable
 
     @Override
     public String toString() {
-        return "Main.Customer{" +
-                "name='" + name + '\'' +
-                ", phoneNo='" + phoneNo + '\'' +
-                ", address='" + address + '\'' +
-                ", email='" + email + '\'' +
-                ", booking=" + booking +
-                ", bookings=" + bookings +
-                ", pets=" + pets +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Name: ").append(name)
+            .append(", Phone No: ").append(phoneNo)
+            .append(", Address: ").append(address)
+            .append(", Email: ").append(email)
+            .append(", Booking: ").append(booking)
+            .append(", Bookings: ").append(bookings)
+            .append(", Pets: ").append(pets);
+
+        return sb.toString();
     }
 
 
