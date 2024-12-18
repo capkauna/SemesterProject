@@ -130,7 +130,7 @@ public class SellAPetView {
 
         backButton = new Button("Return");
         backButton.setStyle("-fx-font-size: 20px; -fx-background-color: white;");
-        backButton.setPrefWidth(420);
+        backButton.setPrefWidth(720);
         pane.getChildren().add(backButton);
 
         resetButton.setOnAction(e -> resetFields());
