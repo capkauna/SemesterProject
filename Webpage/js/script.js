@@ -51,3 +51,4 @@ const createBookingBtn = document.getElementById('createBookingBtn');
 
         notifications.textContent = `Booking for ${customerName} canceled. Notifications sent to both parties.`;
     });
+
