@@ -68,6 +68,15 @@ public class Booking {
     return numberOfDays() * pricePerDay;
   }
 
+  public double getTotalPrice() {
+    return totalPrice;
+  }
+
+  public void setTotalPrice(double totalPrice) {
+    this.totalPrice = totalPrice;
+  }
+
+
   @Override
   public String toString() {
     return "Main.Booking for " + pet + " by " + booker + ", Total Price: " + totalPrice();
