@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"Data"},{"l":"Data.AnimalDTO"},{"l":"GUI"},{"l":"GUI.Customers"},{"l":"GUI.Kennel"},{"l":"GUI.Pets"},{"l":"GUI.Petshop"},{"l":"Helpers"},{"l":"Tests"}];updateSearchResults();
