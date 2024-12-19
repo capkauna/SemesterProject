@@ -147,32 +147,39 @@ public class SellAPetView {
     }
 
     private void handleSubmit() {
-        String selectedCustomer = customerComboBox.getValue();
-        String selectedPet = petComboBox.getValue();
-        LocalDate saleDate = saleDatePicker.getValue();
-        String priceText = priceField.getText();
+        // Get selected values from combo boxes
+        String selectedCustomer = customerComboBox.getValue(); // O(1)
+        String selectedPet = petComboBox.getValue(); // O(1)
+        LocalDate saleDate = saleDatePicker.getValue(); // O(1)
+        String priceText = priceField.getText(); // O(1)
+
 
         resultLabel.setText(""); // Clear previous errors
-        resultLabel2.setText("");
+        resultLabel2.setText(""); // O(1)
 
-        if (selectedCustomer == null || selectedCustomer.trim().isEmpty()) {
-            resultLabel.setText("Please choose a customer.");
-            return;
+        // Check if selected customer is valid
+        if (selectedCustomer == null || selectedCustomer.trim().isEmpty()) { // O(1)
+            resultLabel.setText("Please choose a customer."); // O(1)
+            return; // O(1)
         }
+        // Check if selected pet is valid
         if (selectedPet == null || selectedPet.trim().isEmpty()) {
             resultLabel.setText("Please choose a pet.");
             return;
         }
+        // Check if sale date is valid
         if (saleDate == null) {
             resultLabel.setText("Please select a valid sale date.");
             return;
         }
+        // Check if price is valid
         if (priceText == null || priceText.trim().isEmpty()) {
             resultLabel.setText("Please enter a price.");
             return;
         }
 
         try {
+            // Parse the price
             double price = Double.parseDouble(priceText.trim());
             if (price <= 0) {
                 resultLabel.setText("Price must be a positive number.");
@@ -181,6 +188,7 @@ public class SellAPetView {
                 resultLabel.setText("Price cannot exceed 10,000 DK.");
                 return;
             }
+            // Success message
             resultLabel2.setText("Sale successfully recorded.");
         } catch (NumberFormatException ex) {
             resultLabel.setText("Price must be a number.");
@@ -189,17 +197,37 @@ public class SellAPetView {
         try {
             Customer customerToSave = null;
             Pet petToSave = null;
-            for (Customer customer : customers) {
-                if (customer.getName().equals(selectedCustomer)) {
-                    customerToSave = customer;
-                    break;
+
+            // Loop through customers to find the selected customer
+            for (Customer customer : customers) { // O(n)
+                if (customer.getName().equals(selectedCustomer)) { // O(1) per iteration
+                    customerToSave = customer; // O(1)
+                    break; // O(1)
                 }
             }
-            for (Pet pet : pets) {
-                if (pet.getName().equals(selectedPet)) {
-                    petToSave = pet;
-                    break;
+            // Loop through pets to find the selected pet
+            for (Pet pet : pets) {  // O(m)
+                if (pet.getName().equals(selectedPet)) { // O(1) per iteration
+                    petToSave = pet; // O(1)
+                    break; // O(1)
                 }
+
+                // Time Complexity Analysis:
+                // Base case: There is no recursion in this method, so we can't use the Master Theorem.
+                // Time complexity of each code segment:
+                // Most of the checks and assignments (e.g., String selectedCustomer = customerComboBox.getValue()) are O(1).
+                // We used loops that iterate through customers and pets in parts:
+                // Loop through customers: O(n), where n is the number of customers.
+                // Loop through pets: O(m), where m is the number of pets.
+                // Time complexity formula:
+                // T(n, m) = O(n) + O(m) + O(1) (for constant operations)
+                // Dominating term: The loops through customers and pets are the dominating terms, so the overall time complexity is O(n + m).
+                // Explanation: We used method's complexity is dominated by the linear search through both customers and pets.
+                // If these collections are large, it could impact performance.
+                // About Big-O notation: Overall time complexity: O(n + m), where n is the number of customers and m is the number of pets.
+                // The time complexity analysis is based on the need to loop through collections (customers and pets) to find matching entries.
+                // The most costly operations are these linear searches.
+
             }
 
             Date saleDateToSave = new Date(saleDate.getDayOfMonth(), saleDate.getMonthValue(), saleDate.getYear());
